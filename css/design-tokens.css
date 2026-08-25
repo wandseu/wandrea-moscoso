@@ -1,0 +1,172 @@
+/* Portfolio 2026 design system — tokens, ported from the Claude Design source
+   (portfolio-2026-design-system). Swap the @font-face import for local font
+   files if licensed copies of the originals ever arrive. */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400..700&display=swap");
+
+:root {
+  /* --- base palette --- */
+  --blue-700: #1631B8; --blue-600: #2340E8; --blue-500: #2F4BF7; --blue-400: #6A80FF; --blue-200: #B9C4FF; --blue-100: #E2E7FF;
+  --lime-600: #8FB800; --lime-500: #B4E313; --lime-400: #C9F03E; --lime-200: #E6FAA8;
+  --coral-600: #D93B27; --coral-500: #F0503C; --coral-300: #FF8B7C; --coral-100: #FFE2DD;
+  --violet-700: #3B2FB0; --violet-500: #5B4FE0; --violet-300: #9E96F2;
+  --ink-900: #0E0B1A; --ink-800: #151233; --ink-700: #1B2A6B; --ink-500: #4B5480; --ink-400: #7C84A6; --ink-300: #AEB4CB;
+  --paper-000: #FFFFFF; --paper-100: #F7F8F8; --paper-200: #EDEEEE; --paper-300: #E1E3E5; --paper-400: #CFD2D6;
+
+  /* --- semantic --- */
+  --text-display: var(--blue-500);
+  --text-heading: var(--ink-700);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-500);
+  --text-faint: var(--ink-400);
+  --text-inverse: var(--paper-000);
+  --text-link: var(--blue-600);
+  --text-link-hover: var(--blue-700);
+
+  --surface-page: var(--paper-200);
+  --surface-card: var(--paper-000);
+  --surface-sunken: var(--paper-300);
+  --surface-inverse: var(--ink-900);
+  --surface-accent: var(--blue-500);
+  --surface-highlight: var(--lime-500);
+  --surface-alert: var(--coral-500);
+
+  --border-subtle: var(--paper-300);
+  --border-strong: var(--ink-700);
+  --border-accent: var(--blue-500);
+
+  --accent-primary: var(--blue-500);
+  --accent-secondary: var(--lime-500);
+  --accent-tertiary: var(--coral-500);
+  --accent-deep: var(--violet-500);
+
+  --state-success: var(--lime-600);
+  --state-danger: var(--coral-600);
+  --state-info: var(--blue-500);
+  --state-disabled-bg: var(--paper-300);
+  --state-disabled-fg: var(--ink-400);
+
+  --focus-ring: var(--violet-500);
+
+  --gradient-aurora: radial-gradient(120% 90% at 10% 15%, #EBD9F5 0%, #8E8CFF 32%, #4B3FE0 58%, #171334 84%, #0E0B1A 100%);
+  --gradient-sky: linear-gradient(160deg, var(--blue-500) 0%, var(--violet-500) 100%);
+
+  /* --- type --- */
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-body: "Poppins", "Helvetica Neue", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --text-3xl: 88px; --text-2xl: 64px; --text-xl: 44px; --text-lg: 32px; --text-md: 24px;
+  --text-base: 16px; --text-sm: 14px; --text-xs: 12px; --text-2xs: 10px;
+
+  --leading-tight: 0.92; --leading-snug: 1.15; --leading-normal: 1.55; --leading-loose: 1.75;
+
+  --weight-regular: 400; --weight-medium: 500; --weight-semibold: 600; --weight-bold: 700; --weight-black: 900;
+
+  --tracking-display: -0.02em; --tracking-normal: 0; --tracking-wide: 0.06em; --tracking-caps: 0.14em;
+
+  /* --- spacing --- */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px; --space-5: 20px; --space-6: 24px;
+  --space-8: 32px; --space-10: 40px; --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px; --space-32: 128px;
+  --gutter-page: 32px; --gutter-page-lg: 64px; --max-width-prose: 62ch; --max-width-page: 1200px;
+
+  /* --- radii --- */
+  --radius-xs: 4px; --radius-sm: 8px; --radius-md: 12px; --radius-lg: 18px; --radius-xl: 28px; --radius-pill: 999px;
+  --border-width-hairline: 1px; --border-width-regular: 2px; --border-width-chunky: 3px;
+
+  /* --- effects --- */
+  --shadow-sticker: 0 2px 0 rgba(27, 42, 107, .18);
+  --shadow-card: 0 6px 18px rgba(27, 42, 107, .10);
+  --shadow-raised: 0 14px 34px rgba(27, 42, 107, .16);
+  --shadow-pressed: inset 0 2px 4px rgba(14, 11, 26, .22);
+  --shadow-focus: 0 0 0 3px rgba(91, 79, 224, .38);
+  --overlay-scrim: rgba(14, 11, 26, .55);
+  --blur-glass: blur(14px);
+  --grain-opacity: .35;
+
+  /* --- motion --- */
+  --ease-standard: cubic-bezier(.2, .7, .3, 1);
+  --ease-bounce: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-exit: cubic-bezier(.4, 0, 1, 1);
+  --duration-fast: 120ms; --duration-base: 200ms; --duration-slow: 360ms;
+  --lift-hover: -2px; --press-scale: .97;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--surface-page); }
+body {
+  margin: 0;
+  background: var(--surface-page);
+  color: var(--text-body);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--text-link); text-decoration-thickness: 2px; text-underline-offset: 3px; transition: color var(--duration-fast) var(--ease-standard); }
+a:hover { color: var(--text-link-hover); }
+h1, h2, h3 { font-family: var(--font-display); color: var(--text-heading); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); margin: 0; }
+::selection { background: var(--lime-400); color: var(--ink-800); }
+
+/* --- brand shapes (ported from Sparkle / Sticker / Badge components) --- */
+.sparkle {
+  display: inline-block;
+  width: var(--sparkle-size, 18px);
+  height: var(--sparkle-size, 18px);
+  background: var(--sparkle-color, var(--blue-500));
+  transform: rotate(var(--sparkle-rotate, 0deg));
+  clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+.badge--blue { background: var(--blue-100); color: var(--blue-700); }
+.badge--lime { background: var(--lime-200); color: var(--lime-600); }
+.badge--coral { background: var(--coral-100); color: var(--coral-600); }
+.badge--neutral { background: var(--paper-200); color: var(--text-muted); }
+.badge--solid { background: var(--blue-500); color: var(--text-inverse); }
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: var(--weight-bold);
+  line-height: 1.15;
+  transform: rotate(var(--sticker-rotate, -8deg));
+}
+.sticker--lime { background: var(--lime-500); color: var(--blue-600); }
+.sticker--blue { background: var(--blue-500); color: var(--paper-000); }
+.sticker--coral { background: var(--coral-500); color: var(--paper-000); }
+.sticker--violet { background: var(--violet-500); color: var(--paper-000); }
+.sticker--burst {
+  width: var(--sticker-size, 120px);
+  height: var(--sticker-size, 120px);
+  padding: calc(var(--sticker-size, 120px) * .22);
+  font-size: max(11px, calc(var(--sticker-size, 120px) * .13));
+  border-radius: 0;
+  clip-path: polygon(50% 0%, 58% 9%, 69% 3%, 73% 15%, 86% 13%, 85% 26%, 97% 29%, 91% 40%, 100% 50%, 91% 60%, 97% 71%, 85% 74%, 86% 87%, 73% 85%, 69% 97%, 58% 91%, 50% 100%, 42% 91%, 31% 97%, 27% 85%, 14% 87%, 15% 74%, 3% 71%, 9% 60%, 0% 50%, 9% 40%, 3% 29%, 15% 26%, 14% 13%, 27% 15%, 31% 3%, 42% 9%);
+}
+.sticker--pill {
+  width: auto; height: auto;
+  padding: 8px 18px;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-pill);
+}
+.sticker--blob {
+  width: var(--sticker-size, 120px);
+  height: var(--sticker-size, 120px);
+  padding: calc(var(--sticker-size, 120px) * .22);
+  font-size: max(11px, calc(var(--sticker-size, 120px) * .13));
+  border-radius: 48% 52% 44% 56% / 56% 44% 56% 44%;
+}

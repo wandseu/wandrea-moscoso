@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commerce Desk · Case study — Marcella Aurelia</title>
+<meta name="description" content="Commerce Desk: an operations tool for a marketplace where crew settle purchases against their payroll allotment. Case study on design and front-end work.">
+<link rel="stylesheet" href="css/design-tokens.css">
+<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+<style>
+@keyframes floaty{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-9px,0) rotate(5deg)}}
+@keyframes twirl{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.12)}}
+@keyframes wordUp{from{transform:translate3d(0,110%,0)}to{transform:translate3d(0,0,0)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:3px solid rgba(91,79,224,.38);outline-offset:3px;border-radius:6px}
+[data-cursor-custom],[data-cursor-custom] *{cursor:none!important}
+.next-link{transition:color 160ms}
+.next-link:hover{color:var(--lime-400)!important}
+</style>
+</head>
+<body>
+<div data-page-root style="position:relative;background:var(--paper-200);min-height:100vh;overflow-x:clip">
+
+  <div id="cursor-dot" aria-hidden="true" style="position:fixed;top:0;left:0;z-index:90;pointer-events:none;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:999px;background:var(--blue-500);will-change:transform"></div>
+  <div id="cursor-ring" aria-hidden="true" style="position:fixed;top:0;left:0;z-index:89;pointer-events:none;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:999px;border:2px solid var(--blue-500);will-change:transform;transition:width 200ms cubic-bezier(.2,.8,.2,1),height 200ms cubic-bezier(.2,.8,.2,1),background-color 160ms,margin 200ms cubic-bezier(.2,.8,.2,1)"></div>
+
+  <span id="progress-bar" aria-hidden="true" style="position:fixed;top:0;left:0;height:4px;width:0%;background:var(--lime-500);z-index:64"></span>
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(237,238,238,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="index.html#work" data-cursor="link" style="display:inline-flex;align-items:center;gap:9px;font-size:var(--text-sm);font-weight:600;color:var(--blue-500)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> All work</a>
+      <span style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Case study 02 · Commerce Desk</span>
+      <a href="index.html#contact" data-cursor="link" data-magnet="1" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-500);color:var(--paper-000);border-radius:999px;padding:11px 20px;font-size:var(--text-sm);font-weight:600;transition:transform 160ms cubic-bezier(.34,1.56,.64,1),box-shadow 160ms;will-change:transform">Get in touch</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section aria-label="Overview" style="position:relative;max-width:1180px;margin:0 auto;padding:72px 32px 56px">
+      <div aria-hidden="true" style="position:absolute;right:5%;top:12%;animation:floaty 9s ease-in-out infinite">
+        <span class="sparkle" style="--sparkle-color:var(--coral-500);--sparkle-size:42px"></span>
+      </div>
+      <div aria-hidden="true" style="position:absolute;left:54%;top:4%;animation:twirl 7s ease-in-out infinite">
+        <span class="sparkle" style="--sparkle-color:var(--blue-500);--sparkle-size:24px"></span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:24px">
+        <span class="badge badge--lime">In production</span>
+        <span style="font-size:var(--text-xs);font-weight:500;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Internal tool · Admin system · Design + front-end</span>
+      </div>
+
+      <h1 style="margin:0;max-width:18ch;font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,8vw,var(--text-3xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">
+        <span style="display:block;overflow:hidden;padding-bottom:.22em;margin-bottom:-.18em"><span style="display:inline-block;animation:wordUp 760ms cubic-bezier(.34,1.56,.64,1) 60ms both">Commerce Desk</span></span>
+      </h1>
+      <p style="margin:22px 0 0;max-width:58ch;font-size:var(--text-md);line-height:var(--leading-normal);color:var(--ink-700)">An operations tool for a marketplace where crew settle purchases against their <em>allotment</em> — payment as a payroll event, not a card transaction. I designed and built the front-end that replaced <span style="background:linear-gradient(transparent 62%, var(--lime-400) 62%);padding:0 2px">spreadsheets and developer requests</span>.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;margin-top:44px;background:var(--border-subtle);border-radius:18px;overflow:hidden">
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Role</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Product designer &amp; front-end developer</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Built with</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">HTML · CSS · vanilla JavaScript</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Worked with</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Backend developers &amp; the ops team</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Users</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Catalog, orders, merchants, marketing, admin</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Year</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">2024</div></div>
+      </div>
+
+      <div data-reveal="0" style="margin-top:34px;position:relative">
+        <div aria-hidden="true" style="position:absolute;top:-22px;right:26px;z-index:3;animation:twirl 8s ease-in-out infinite">
+          <span class="sticker sticker--lime sticker--burst" style="--sticker-rotate:8deg;--sticker-size:86px">Ops-run</span>
+        </div>
+        <div style="background:var(--blue-100);border-radius:24px;padding:44px 44px 0;overflow:hidden">
+          <img src="assets/cd-dashboard.png" alt="Commerce Desk dashboard showing deduction collection by payroll cycle and schedules needing attention" style="width:100%;display:block;border-radius:14px 14px 0 0;box-shadow:0 30px 60px -20px rgba(27,42,107,.45)">
+        </div>
+      </div>
+      <p style="margin:16px 0 0;font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Dashboard — collection against payroll cycles, not calendar months</p>
+    </section>
+
+    <section aria-label="Context" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start">
+        <div data-reveal="0">
+          <h2 style="margin:0 0 20px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Context</h2>
+          <p style="margin:0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal)">The platform sells to ship crew and their families. Crew are paid partly through <em>allotment</em> — a fixed share of wages routed home to a designated allottee — so an order can be settled by deducting it from that allotment instead of paying up front. Crew and allottees can also register as merchants and sell on the same platform.</p>
+          <p style="margin:16px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">One person can therefore be a buyer, an allottee and a seller at once, and payment is a payroll event rather than a card transaction. The admin system has to make all of that legible to a small operations team.</p>
+          <p style="margin:16px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">The system shipped internally as <em>Merchant Portal</em> — a name describing one of six user types and none of the catalog, order or deduction work it actually does. I've presented it here as Commerce Desk: what the team gained was a place to run the business from.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--ink-900);color:var(--paper-000);border-radius:18px;padding:32px;position:relative;overflow:hidden">
+          <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.5"></div>
+          <div style="position:relative">
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">The design question</div>
+            <p style="margin:16px 0 0;font-family:var(--font-display);font-size:var(--text-lg);line-height:var(--leading-tight);letter-spacing:var(--tracking-display)">How do you give operations direct control of the data they own — and build something they'd genuinely <em>switch to,</em> rather than keep open beside the spreadsheet?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="The problem" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 12px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">The problem</h2>
+      <p data-reveal="0" style="margin:0 0 36px;max-width:26ch;font-family:var(--font-display);font-size:clamp(2rem,5vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">The people who understood the business couldn't <span style="font-style:italic;color:var(--ink-700)">act on it.</span></p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+        <div data-reveal="0" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <div style="width:40px;height:40px;border-radius:999px;background:var(--blue-100);display:flex;align-items:center;justify-content:center;color:var(--blue-500)"><i data-lucide="table-2" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:18px 0 10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">Operations ran on spreadsheets</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Product lists, order tracking and merchant records were maintained by hand, in files that drifted out of sync with the actual database.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <div style="width:40px;height:40px;border-radius:999px;background:var(--coral-100);display:flex;align-items:center;justify-content:center;color:var(--coral-500)"><i data-lucide="terminal" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:18px 0 10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">Anything system-level needed a developer</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Changing a price or correcting an order meant filing a request and waiting for someone to edit the record on the backend. Slow for routine work, and no record of who changed what.</p>
+        </div>
+        <div data-reveal="120" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <div style="width:40px;height:40px;border-radius:999px;background:var(--lime-200);display:flex;align-items:center;justify-content:center;color:var(--ink-900)"><i data-lucide="calendar-clock" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:18px 0 10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">Deductions had no home</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">A commitment against future wages spans payroll cycles and can be interrupted by a contract ending. No off-the-shelf ecommerce admin has a pattern for that.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Design decisions" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 40px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Design decisions</h2>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div>
+          <span class="badge badge--solid">01</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Designing for spreadsheet users</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">The users weren't resistant to software — they were fluent in a different one. Their mental model was rows, columns, filters and copy-paste, and a tool that fought that model would lose to the spreadsheet, because the spreadsheet already worked.</p>
+          <ul style="list-style:none;margin:20px 0 0;padding:0;max-width:52ch">
+            <li style="padding:12px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)"><strong style="color:var(--ink-900)">Dense tables, not card grids.</strong> <span style="color:var(--ink-500)">Compact rows, sticky headers, alignment that mirrors how ops would lay it out themselves.</span></li>
+            <li style="padding:12px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)"><strong style="color:var(--ink-900)">Inline editing on high-frequency fields.</strong> <span style="color:var(--ink-500)">Clicking through to a detail page to change one number is exactly the friction that sends people back to Excel.</span></li>
+            <li style="padding:12px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)"><strong style="color:var(--ink-900)">Bulk select and bulk actions.</strong> <span style="color:var(--ink-500)">Spreadsheet users think in ranges, not individual records.</span></li>
+            <li style="padding:12px 0;font-size:var(--text-sm)"><strong style="color:var(--ink-900)">CSV import/export as a bridge.</strong> <span style="color:var(--ink-500)">An escape hatch made adoption feel low-risk while trust was still being built.</span></li>
+          </ul>
+        </div>
+        <div style="background:var(--blue-100);border-radius:22px;padding:32px 32px 0;overflow:hidden">
+          <img src="assets/cd-products.png" alt="Products table with bulk selection, inline price editing, filters and a saved view" style="width:100%;display:block;border-radius:12px 12px 0 0;box-shadow:0 26px 50px -20px rgba(27,42,107,.44)">
+        </div>
+      </div>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div style="order:2;position:relative">
+          <div aria-hidden="true" style="position:absolute;top:-16px;left:-12px;z-index:3;animation:floaty 10s ease-in-out infinite">
+            <span class="sticker sticker--coral sticker--pill" style="--sticker-rotate:-6deg">Where is this order's money?</span>
+          </div>
+          <div style="background:var(--lime-200);border-radius:22px;padding:32px 32px 0;overflow:hidden">
+            <img src="assets/cd-orders.png" alt="Order detail with a per-cycle deduction schedule, allotment commitment and change history" style="width:100%;display:block;border-radius:12px 12px 0 0;box-shadow:0 26px 50px -20px rgba(27,42,107,.44)">
+          </div>
+        </div>
+        <div style="order:1">
+          <span class="badge badge--solid">02</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Allotment deduction as a first-class flow</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">A card payment succeeds or fails in a moment. An allotment deduction is a commitment against future wages, spread across payroll cycles, and it can be disrupted by things that have nothing to do with the order — a contract ending, a crew member disembarking, a change in allotment amount.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">So the order detail carries the schedule itself: the plan laid out by cycle with per-cycle status, a per-buyer commitment summary so over-commitment is visible before it becomes a collection problem, and flagging for schedules a contract end will interrupt.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Order status and deduction status are different things, kept visually and verbally separate — an order can be delivered while its deductions are still running.</p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+        <div data-reveal="0" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <span class="badge badge--solid">03</span>
+          <h3 style="margin:14px 0 12px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">One person, several roles</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">A person record couldn't be a flat customer row. Buying history and merchant activity live in one view but in role-specific sections, with merchant approval kept as its own workflow — so nobody mistakes a storefront's metrics for that person's own purchases.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <span class="badge badge--solid">04</span>
+          <h3 style="margin:14px 0 12px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">Turning developer tasks into forms</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Every field a developer used to edit by hand became a question of what rules should exist around it: validation on prices, change history, post-placement edits constrained to what's safe, and confirmation friction proportional to consequence. Replacing a developer isn't giving ops raw database access with a nicer font — it's encoding the judgement the developer was applying.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Design system" style="position:relative;background:var(--ink-900);color:var(--paper-000);padding:80px 0;overflow:hidden;margin:40px 0">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.55;pointer-events:none"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 32px">
+        <h2 style="margin:0 0 22px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">The design system</h2>
+        <p style="margin:0;max-width:26ch;font-family:var(--font-display);font-size:clamp(2rem,5.4vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display)">Calm chrome, <span style="font-style:italic;color:var(--lime-400)">dense working surfaces.</span></p>
+        <p style="margin:26px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:rgba(255,255,255,.78)">A lot of dashboard design puts air everywhere, which photographs well and slows people down on the fiftieth record of the day. So the system splits in two: sidebar, headers and summary cards get generous spacing and soft shadows — that's where someone lands and decides whether the tool is trustworthy. Tables, order lists and deduction schedules get compressed rows and tighter padding, because there density <em>is</em> the courtesy. Same tokens, different rhythm.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:40px">
+          <div>
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400);margin-bottom:14px">Colour</div>
+            <div style="display:flex;gap:8px;margin-bottom:12px">
+              <span style="width:34px;height:34px;border-radius:9px;background:#2F5CFF"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#EAF0FF"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#FFC845"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#F4F6FA"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#1B2233"></span>
+            </div>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:rgba(255,255,255,.72)">Yellow is deliberately scarce — one accent per screen, so the eye always knows where the primary action is. Used twice it becomes decorative and worthless.</p>
+          </div>
+          <div>
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400);margin-bottom:14px">Status language</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px">
+              <span style="font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;color:#5A6478;background:#F1F4F9">Pending</span>
+              <span style="font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;color:#2F5CFF;background:#EAF0FF">In progress</span>
+              <span style="font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;color:#12805C;background:#E4F5EE">Collected</span>
+              <span style="font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;color:#B07A05;background:#FFF3D6">At risk</span>
+              <span style="font-size:11.5px;font-weight:600;padding:5px 11px;border-radius:999px;color:#C4341F;background:#FCE9E5">Failed</span>
+            </div>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:rgba(255,255,255,.72)">Order status, deduction status and merchant approval share one palette, so a colour carries one meaning system-wide. Status is never carried by colour alone — ops read these under time pressure, and some print them.</p>
+          </div>
+          <div>
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400);margin-bottom:14px">Numerals</div>
+            <div style="font-family:var(--font-mono);font-size:22px;font-weight:600;line-height:1.5;margin-bottom:12px;color:#fff">₱  8,100<br>₱ 32,400<br>₱241,900</div>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:rgba(255,255,255,.72)">Tabular numerals everywhere. Prices, quantities and allotment amounts have to align down a column or the table stops being scannable — a small decision that matters more here than in most products.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Front-end implementation" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start">
+        <div data-reveal="0">
+          <h2 style="margin:0 0 20px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Front-end implementation</h2>
+          <p style="margin:0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal)">Plain HTML, CSS and JavaScript — no framework. For an interface this table-heavy that meant deliberately building my own foundations rather than importing them.</p>
+          <p style="margin:16px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Honest tradeoff: without a framework, state consistency is manual work. Keeping a filtered table in sync after an inline edit was the recurring problem, and the answer was to make the table module the single owner of its row state rather than patching the DOM at the call site.</p>
+        </div>
+        <div data-reveal="60">
+          <ul style="list-style:none;margin:0;padding:0">
+            <li style="padding:16px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm);line-height:var(--leading-normal)"><strong style="color:var(--ink-900)">A reusable data table module.</strong> <span style="color:var(--ink-500)">Server-side pagination, sorting, filtering, bulk selection — shared across products, orders, merchants and promos instead of rewritten per screen.</span></li>
+            <li style="padding:16px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm);line-height:var(--leading-normal)"><strong style="color:var(--ink-900)">Event delegation on table containers.</strong> <span style="color:var(--ink-500)">Rows re-render without rebinding hundreds of listeners.</span></li>
+            <li style="padding:16px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm);line-height:var(--leading-normal)"><strong style="color:var(--ink-900)">Shared modal, toast and validation modules.</strong> <span style="color:var(--ink-500)">Every screen fails the same way.</span></li>
+            <li style="padding:16px 0;font-size:var(--text-sm);line-height:var(--leading-normal)"><strong style="color:var(--ink-900)">One fetch wrapper.</strong> <span style="color:var(--ink-500)">Auth, error shapes and loading states handled in a single place; debounced search keeps large lists responsive.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Outcome" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 28px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Outcome</h2>
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--border-subtle);border-radius:18px;overflow:hidden">
+        <div style="background:var(--paper-000);padding:26px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Price &amp; order changes</div><div style="margin-top:10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500)">Self-serve</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-500)">Previously a developer request</div></div>
+        <div style="background:var(--paper-000);padding:26px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Order tracking</div><div style="margin-top:10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500)">System of record</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-500)">Ops no longer maintain the product spreadsheet</div></div>
+        <div style="background:var(--paper-000);padding:26px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Who changed what</div><div style="margin-top:10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500)">Tracked</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-500)">Previously nothing at all</div></div>
+      </div>
+      <p data-reveal="60" style="margin:20px 0 0;max-width:62ch;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-500)">Adoption is the honest measure here rather than a percentage: the spreadsheets stopped being updated, which is the outcome the project existed for.</p>
+    </section>
+
+    <section aria-label="Reflection" style="max-width:1180px;margin:0 auto;padding:24px 32px 88px">
+      <h2 data-reveal="0" style="margin:0 0 16px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">What I'd do differently</h2>
+      <ul data-reveal="0" style="list-style:none;margin:0;padding:0;max-width:62ch">
+        <li style="padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)">Build the shared table module before the third screen instead of after — the first two still carry inconsistencies.</li>
+        <li style="padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)">Sit with ops during a real workday earlier. The most useful decisions came from watching, not from requirements.</li>
+        <li style="padding:14px 0;font-size:var(--text-sm)">Design the deduction states before the order states — deduction is the harder concept, and order status ended up bending around it anyway.</li>
+      </ul>
+    </section>
+
+    <section aria-label="Next" style="position:relative;background:var(--ink-900);color:var(--paper-000);padding:80px 0 32px;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.55;pointer-events:none"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 32px">
+        <span style="font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">Next</span>
+        <a href="fund-my-future.html" data-cursor="link" class="next-link" style="display:block;margin-top:18px;font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,6vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--paper-000)">FundMyFuture →</a>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+          <a href="index.html#work" data-cursor="link" style="display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,.34);color:var(--paper-000);border-radius:999px;padding:13px 24px;font-size:var(--text-sm);font-weight:600">All work</a>
+          <a href="index.html#contact" data-cursor="link" data-magnet="1" style="display:inline-flex;align-items:center;gap:10px;background:var(--lime-500);color:var(--ink-900);border-radius:999px;padding:14px 24px;font-size:var(--text-sm);font-weight:600;transition:transform 160ms cubic-bezier(.34,1.56,.64,1);will-change:transform">Get in touch</a>
+        </div>
+        <footer style="margin-top:64px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,.62)">
+          <span>Commerce Desk · Case study</span>
+          <span>Tangerang · GMT+7</span>
+          <span>© 2026 Marcella Aurelia</span>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="js/commerce-desk.js"></script>
+</body>
+</html>
