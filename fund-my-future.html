@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FundMyFuture · Case study — Wandrea Moscoso</title>
+<meta name="description" content="FundMyFuture: a wage-planning app for seafarers that turns a mandatory 80% salary allotment into a plan for the future. Case study on research, design and motion.">
+<link rel="stylesheet" href="css/design-tokens.css">
+<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+<style>
+@keyframes floaty{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-9px,0) rotate(5deg)}}
+@keyframes twirl{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.12)}}
+@keyframes wordUp{from{transform:translate3d(0,110%,0)}to{transform:translate3d(0,0,0)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:3px solid rgba(91,79,224,.38);outline-offset:3px;border-radius:6px}
+[data-cursor-custom],[data-cursor-custom] *{cursor:none!important}
+.next-link{transition:color 160ms}
+.next-link:hover{color:var(--lime-400)!important}
+</style>
+</head>
+<body>
+<div data-page-root style="position:relative;background:var(--paper-200);min-height:100vh;overflow-x:clip">
+
+  <div id="cursor-dot" aria-hidden="true" style="position:fixed;top:0;left:0;z-index:90;pointer-events:none;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:999px;background:var(--blue-500);will-change:transform"></div>
+  <div id="cursor-ring" aria-hidden="true" style="position:fixed;top:0;left:0;z-index:89;pointer-events:none;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:999px;border:2px solid var(--blue-500);will-change:transform;transition:width 200ms cubic-bezier(.2,.8,.2,1),height 200ms cubic-bezier(.2,.8,.2,1),background-color 160ms,margin 200ms cubic-bezier(.2,.8,.2,1)"></div>
+
+  <span id="progress-bar" aria-hidden="true" style="position:fixed;top:0;left:0;height:4px;width:0%;background:var(--lime-500);z-index:64"></span>
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(237,238,238,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="index.html" data-cursor="link" style="display:inline-flex;align-items:center;gap:9px;font-size:var(--text-sm);font-weight:600;color:var(--blue-500)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> All work</a>
+      <span style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Case study 01 · FundMyFuture</span>
+      <a href="index.html#contact" data-cursor="link" data-magnet="1" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-500);color:var(--paper-000);border-radius:999px;padding:11px 20px;font-size:var(--text-sm);font-weight:600;transition:transform 160ms cubic-bezier(.34,1.56,.64,1),box-shadow 160ms;will-change:transform">Get in touch</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section aria-label="Overview" style="position:relative;max-width:1180px;margin:0 auto;padding:72px 32px 56px">
+      <div aria-hidden="true" style="position:absolute;right:4%;top:14%;animation:floaty 9s ease-in-out infinite">
+        <span class="sparkle" style="--sparkle-color:var(--coral-500);--sparkle-size:42px"></span>
+      </div>
+      <div aria-hidden="true" style="position:absolute;left:52%;top:5%;animation:twirl 7s ease-in-out infinite">
+        <span class="sparkle" style="--sparkle-color:var(--blue-500);--sparkle-size:24px"></span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:24px">
+        <span class="badge badge--lime">Launched to crew</span>
+        <span style="font-size:var(--text-xs);font-weight:500;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Fintech · Mobile · iOS &amp; Android</span>
+      </div>
+
+      <h1 style="margin:0;max-width:20ch;font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,8vw,var(--text-3xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">
+        <span style="display:block;overflow:hidden;padding-bottom:.22em;margin-bottom:-.18em"><span style="display:inline-block;animation:wordUp 760ms cubic-bezier(.34,1.56,.64,1) 60ms both">FundMyFuture</span></span>
+      </h1>
+      <p style="margin:22px 0 0;max-width:56ch;font-size:var(--text-md);line-height:var(--leading-normal);color:var(--ink-700)">Turning a mandatory salary allotment into a plan for the future — a wage-planning app for seafarers that reframes the legally required 80% family remittance from money <em>sent away</em> into money <span style="background:linear-gradient(transparent 62%, var(--lime-400) 62%);padding:0 2px">put to work</span>.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;margin-top:44px;background:var(--border-subtle);border-radius:18px;overflow:hidden">
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Role</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Sole designer — research through final UI</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Team</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Direct with the owner &amp; executive team</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Timeline</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">4 months · Jan – Apr 2025</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Status</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Launched to crew</div></div>
+      </div>
+
+      <div data-reveal="0" style="margin-top:34px;position:relative">
+        <div aria-hidden="true" style="position:absolute;top:-26px;right:2%;z-index:3;animation:twirl 8s ease-in-out infinite">
+          <span class="sticker sticker--lime sticker--burst" style="--sticker-rotate:8deg;--sticker-size:86px">80%</span>
+        </div>
+        <div style="position:relative;background:var(--blue-100);border-radius:24px;padding:56px 40px 0;overflow:hidden;display:flex;justify-content:center;align-items:flex-end;gap:0;min-height:420px">
+          <img src="assets/fmf-breakdown.png" alt="FundMyFuture salary breakdown screen" style="width:clamp(150px,20%,240px);border-radius:24px;box-shadow:0 22px 44px -18px rgba(27,42,107,.42);transform:translateY(46px) rotate(-4deg);position:relative;z-index:1">
+          <img src="assets/fmf-home.png" alt="FundMyFuture home screen showing the monthly wage allocation" style="width:clamp(170px,23%,270px);border-radius:26px;box-shadow:0 30px 56px -18px rgba(27,42,107,.5);position:relative;z-index:3;margin:0 -18px">
+          <img src="assets/fmf-goals.png" alt="FundMyFuture goals list screen" style="width:clamp(150px,20%,240px);border-radius:24px;box-shadow:0 22px 44px -18px rgba(27,42,107,.42);transform:translateY(46px) rotate(4deg);position:relative;z-index:1">
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Context" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start">
+        <div data-reveal="0">
+          <h2 style="margin:0 0 20px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Context</h2>
+          <p style="margin:0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal)">Under the Magna Carta of Filipino Seafarers, at least 80% of a seafarer's monthly wage must be remitted to their designated family allottee. It is not optional and not negotiable — it is the single largest fixed movement of money in a seafarer's financial life.</p>
+          <p style="margin:16px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">What the law guarantees is that the money <em>arrives</em>. What it says nothing about is what happens next. The remaining 20% still has to absorb government deductions, loan repayments, subscriptions and shipboard allowance — while the 80% lands ashore and is spent as it comes, on real and legitimate needs, with no structure behind it.</p>
+          <p style="margin:16px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">The project began as the personal initiative of the company's owner, who wanted crew to end their contracts with something to show for them.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--ink-900);color:var(--paper-000);border-radius:18px;padding:32px;position:relative;overflow:hidden">
+          <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.5"></div>
+          <div style="position:relative">
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">The design question</div>
+            <p style="margin:16px 0 0;font-family:var(--font-display);font-size:var(--text-lg);line-height:var(--leading-tight);letter-spacing:var(--tracking-display)">How might we help seafarers see their whole salary at once, and give the money they're already required to send <em>a job to do?</em></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="The problem" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 12px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">The problem</h2>
+      <p data-reveal="0" style="margin:0 0 36px;max-width:24ch;font-family:var(--font-display);font-size:clamp(2rem,5vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Seafarers earn well. Many still retire with <span style="font-style:italic;color:var(--ink-700)">nothing.</span></p>
+      <p data-reveal="0" style="margin:0 0 36px;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">The gap isn't income — it's infrastructure. Research surfaced three compounding issues.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+        <div data-reveal="0" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <div style="width:40px;height:40px;border-radius:999px;background:var(--blue-100);display:flex;align-items:center;justify-content:center;color:var(--blue-500)"><i data-lucide="eye-off" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:18px 0 10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">No visibility</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Crew knew their gross salary and roughly what landed at home, but few could account for the middle. Deductions, amortizations and subscriptions were understood individually and never as a whole.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <div style="width:40px;height:40px;border-radius:999px;background:var(--lime-200);display:flex;align-items:center;justify-content:center;color:var(--ink-900)"><i data-lucide="split" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:18px 0 10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">No separation of family money and future money</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">The 80% arrived as one undifferentiated sum. Money for a house and money for groceries were indistinguishable in the same account — and short-term needs always won.</p>
+        </div>
+        <div data-reveal="120" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <div style="width:40px;height:40px;border-radius:999px;background:var(--coral-100);display:flex;align-items:center;justify-content:center;color:var(--coral-500)"><i data-lucide="languages" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:18px 0 10px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">No product that matched the goal</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Savings options existed but were framed in industry terms — tenor, yield, risk profile. Crew were thinking in human terms: a house, tuition, a hospital fund, the year they stop sailing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Research" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start">
+        <div data-reveal="0">
+          <h2 style="margin:0 0 20px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Research</h2>
+          <p style="margin:0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal)">Eight interviews with active and returning crew across ranks, plus three sessions with allottees ashore.</p>
+          <p style="margin:16px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Working alongside the owner and executives gave me direct access to crew and to the company's payroll reality — I could design against actual deduction structures rather than assumptions.</p>
+          <div data-reveal="60" style="margin-top:26px;background:var(--paper-300);border-radius:22px;padding:34px 24px 0;display:flex;justify-content:center;overflow:hidden">
+            <img src="assets/fmf-home.png" alt="Home screen framing the month as family, future, deductions and ship allowance" style="width:min(66%,250px);border-radius:24px;box-shadow:0 22px 40px -18px rgba(27,42,107,.4);transform:translateY(28px)">
+          </div>
+        </div>
+        <div data-reveal="60">
+          <h3 style="margin:0 0 18px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Constraints that shaped everything after</h3>
+          <ul style="list-style:none;margin:0;padding:0">
+            <li style="padding:16px 0;border-bottom:1px solid var(--border-subtle)"><strong style="color:var(--ink-900)">Connectivity is scarce and expensive at sea.</strong> <span style="color:var(--ink-500)">The app had to be useful in short, low-bandwidth sessions and readable offline.</span></li>
+            <li style="padding:16px 0;border-bottom:1px solid var(--border-subtle)"><strong style="color:var(--ink-900)">The money is managed by someone else.</strong> <span style="color:var(--ink-500)">The allottee ashore makes most day-to-day decisions, so a plan the seafarer sets alone will not hold.</span></li>
+            <li style="padding:16px 0;border-bottom:1px solid var(--border-subtle)"><strong style="color:var(--ink-900)">Contracts are finite and repeating.</strong> <span style="color:var(--ink-500)">Planning follows a 6–9 month contract rhythm, not a calendar year.</span></li>
+            <li style="padding:16px 0"><strong style="color:var(--ink-900)">Financial vocabulary is a barrier.</strong> <span style="color:var(--ink-500)">Not a literacy problem — a translation problem.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="The reframe" style="position:relative;background:var(--ink-900);color:var(--paper-000);padding:80px 0;overflow:hidden;margin:40px 0">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.55;pointer-events:none"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 32px">
+        <h2 style="margin:0 0 22px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">The reframe</h2>
+        <p style="margin:0;max-width:30ch;font-family:var(--font-display);font-size:clamp(2rem,5.4vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display)">Not where the money went — <span style="font-style:italic;color:var(--lime-400)">what it's now doing.</span></p>
+        <p style="margin:26px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:rgba(255,255,255,.78)">Most budgeting apps start from <em>where did my money go?</em> For this crew that question was already answered by law: 80% went home. Starting there would have produced an app that told people what they already knew. So the product starts one step later — and that single shift determined the whole structure: allocation first, then goals, then growth.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px">
+          <span class="badge badge--lime">1 · Allocation</span>
+          <span class="badge badge--lime">2 · Goals</span>
+          <span class="badge badge--lime">3 · Growth</span>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Design decisions" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 40px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Design decisions</h2>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div>
+          <span class="badge badge--solid">01</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">The salary breakdown as one continuous view</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">Rather than separate screens for deductions, loans and allotment, one flow follows a single month's salary from gross to its final resting places: government deductions, loans, subscriptions, shipboard allowance, personal allocation, family allocation.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Crew could finally see the whole month in one motion — and, critically, see how much room actually existed to redirect.</p>
+        </div>
+        <div style="background:var(--blue-100);border-radius:22px;padding:36px 24px 0;display:flex;justify-content:center;overflow:hidden">
+          <img src="assets/fmf-breakdown.png" alt="Salary breakdown screen following one month from gross to its final destinations" style="width:min(78%,300px);border-radius:26px;box-shadow:0 26px 48px -18px rgba(27,42,107,.44);transform:translateY(28px)">
+        </div>
+      </div>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div style="position:relative;order:2;display:flex;flex-wrap:wrap;gap:28px;justify-content:center">
+          <div aria-hidden="true" style="position:absolute;top:-18px;left:-10px;z-index:3;animation:floaty 10s ease-in-out infinite">
+            <span class="sticker sticker--coral sticker--pill" style="--sticker-rotate:-6deg">A house in 5 years</span>
+          </div>
+          <div style="background:var(--lime-200);border-radius:22px;padding:36px 22px 0;display:flex;justify-content:center;align-items:flex-end;gap:0;overflow:hidden;width:100%">
+            <img src="assets/fmf-goals.png" alt="Goals list, each matched to a savings vehicle" style="width:clamp(130px,42%,220px);border-radius:22px;box-shadow:0 22px 40px -18px rgba(27,42,107,.4);transform:translateY(30px) rotate(-3deg)">
+            <img src="assets/fmf-goal.png" alt="Detail of the housing goal with contributions and auto-allocation" style="width:clamp(140px,46%,240px);border-radius:24px;box-shadow:0 28px 50px -18px rgba(27,42,107,.46);transform:translateY(18px);margin-left:-16px;position:relative;z-index:2">
+          </div>
+        </div>
+        <div style="order:1">
+          <span class="badge badge--solid">02</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Goal-based programs, not financial products</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">Programs are surfaced by what the money is <em>for</em> — housing, education, retirement, health — and each goal is matched to a vehicle suited to its time horizon and liquidity needs. The mechanics sit underneath; the goal sits on top.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">A user chooses "a house in five years," not a five-year time deposit.</p>
+        </div>
+      </div>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div>
+          <span class="badge badge--solid">03</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Everything editable from the ship</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">Allottee details, allocation split, loans and deductions all sit one tap from the profile — no office ticket, no waiting for shore hours.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Circumstances change mid-contract. A plan you cannot edit is a plan you abandon.</p>
+        </div>
+        <div style="background:var(--coral-100);border-radius:22px;padding:36px 24px 0;display:flex;justify-content:center;overflow:hidden">
+          <img src="assets/fmf-profile.png" alt="Profile screen with editable allottee details, allocation split and deductions" style="width:min(74%,290px);border-radius:26px;box-shadow:0 26px 48px -18px rgba(27,42,107,.44);transform:translateY(26px)">
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+        <div data-reveal="0" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <span class="badge badge--solid">04</span>
+          <h3 style="margin:14px 0 12px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">Progressive disclosure over dense forms</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Deductions, then allowance, then goals — never all three at once. Each step of setup asks one question and shows its effect on the total before moving on.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <span class="badge badge--solid">05</span>
+          <h3 style="margin:14px 0 12px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">Designing for the ship, not the desk</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Large touch targets, high-contrast type, minimal per-session data load, and a layout that holds up on older devices in poor lighting. Every core screen answers its question above the fold.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Visual language" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 16px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Visual language</h2>
+      <p data-reveal="0" style="margin:0 0 36px;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Financial apps default to a narrow register: royal blue, dense data, tight rows. This product's emotional register is long-term and steady rather than transactional, so the surface is calmer. Teal over category-standard blue, deliberately — it reads as growth rather than banking, which is the entire argument of the product.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px">
+        <div data-reveal="0" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:26px">
+          <h3 style="margin:0 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">Neutral canvas, white cards</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Soft off-white pages with pure white cards separated by surface contrast alone — no borders. 16px radii on hero surfaces, 12px on standard cards.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:26px">
+          <h3 style="margin:0 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">One accent, with discipline</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Deep teal carries every point of emphasis: the allotment hero, active navigation, every goal's progress fill. Everything else is black, gray or white.</p>
+        </div>
+        <div data-reveal="120" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:26px">
+          <h3 style="margin:0 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">Numerals are the typography</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Figures are large, tightly tracked, medium weight; labels stay small and quiet. Two weights only — size does the emphasis work.</p>
+        </div>
+        <div data-reveal="0" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:26px">
+          <h3 style="margin:0 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">Category colour, twice</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Icon tile backgrounds and progress fills only. Housing, education, health and retirement each own a hue — never as text, never as a full card fill.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:26px">
+          <h3 style="margin:0 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">Generous vertical rhythm</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">20px inside hero cards, 16–18px inside standard cards. A screen about someone's retirement should not feel like a spreadsheet.</p>
+        </div>
+        <div data-reveal="120" style="background:var(--violet-300);border-radius:18px;padding:30px 20px 0;display:flex;justify-content:center;overflow:hidden">
+          <img src="assets/fmf-goal.png" alt="Goal detail screen showing the teal accent carrying every point of emphasis" style="width:min(80%,230px);border-radius:22px;box-shadow:0 20px 38px -16px rgba(27,42,107,.42);transform:translateY(24px)">
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Motion" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 12px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Motion as explanation</h2>
+      <p data-reveal="0" style="margin:0 0 36px;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">For users who found financial products opaque, animation wasn't polish — it was the mechanism that made the math legible. Four micro-interactions carry the salary breakdown, and every one runs locally at zero network cost.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;background:var(--border-subtle);border-radius:18px;overflow:hidden">
+        <div data-reveal="0" style="background:var(--paper-000);padding:28px">
+          <div style="color:var(--blue-500)"><i data-lucide="hash" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:14px 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">Figures count, not jump</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Animating gross to net lets the user see subtraction happen. A number that snaps has to be re-read; one that travels tells you which direction it went.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);padding:28px">
+          <div style="color:var(--blue-500)"><i data-lucide="sliders-horizontal" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:14px 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">The bar reallocates, never redraws</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Segments grow and shrink inside a fixed track, so the total stays visibly constant. The most important interaction in the app — the visual argument that the 80% didn't disappear, it moved.</p>
+        </div>
+        <div data-reveal="120" style="background:var(--paper-000);padding:28px">
+          <div style="color:var(--blue-500)"><i data-lucide="list" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:14px 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">Line items stagger in</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Roughly 70ms apart. It reads as the system working through the math line by line, and it gives the eye a reading order instead of dumping six rows at once.</p>
+        </div>
+        <div data-reveal="0" style="background:var(--paper-000);padding:28px">
+          <div style="color:var(--blue-500)"><i data-lucide="layers" style="width:20px;height:20px"></i></div>
+          <h3 style="margin:14px 0 10px;font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--blue-500)">One question per step</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Deductions, then allowance, then goals — never all three at once. Progressive disclosure across the entire setup flow.</p>
+        </div>
+      </div>
+      <div data-reveal="60" style="margin-top:24px;background:var(--blue-200);border-radius:22px;padding:44px 32px 0;display:flex;justify-content:center;align-items:flex-end;gap:26px;overflow:hidden;flex-wrap:wrap">
+        <img src="assets/fmf-home.png" alt="Step one: the month at a glance" style="width:clamp(130px,22%,220px);border-radius:22px;box-shadow:0 22px 40px -18px rgba(27,42,107,.42);transform:translateY(34px)">
+        <img src="assets/fmf-breakdown.png" alt="Step two: the breakdown, line by line" style="width:clamp(140px,24%,240px);border-radius:24px;box-shadow:0 28px 48px -18px rgba(27,42,107,.48);transform:translateY(14px)">
+        <img src="assets/fmf-goal.png" alt="Step three: the money arrives in a goal" style="width:clamp(130px,22%,220px);border-radius:22px;box-shadow:0 22px 40px -18px rgba(27,42,107,.42);transform:translateY(34px)">
+      </div>
+    </section>
+
+    <section aria-label="Testing and outcome" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start">
+        <div data-reveal="0">
+          <h2 style="margin:0 0 20px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Testing</h2>
+          <p style="margin:0 0 22px;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">I presented the concept and a working demo to the executive team and to crew members for hands-on testing.</p>
+          <ul style="list-style:none;margin:0;padding:0">
+            <li style="display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm);line-height:var(--leading-normal)"><span style="color:var(--lime-500);flex:0 0 auto"><i data-lucide="check" style="width:18px;height:18px"></i></span>Easy to use and easy to understand — the breakdown made sense without explanation</li>
+            <li style="display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm);line-height:var(--leading-normal)"><span style="color:var(--lime-500);flex:0 0 auto"><i data-lucide="check" style="width:18px;height:18px"></i></span>Crew valued being able to update their own details</li>
+            <li style="display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm);line-height:var(--leading-normal)"><span style="color:var(--lime-500);flex:0 0 auto"><i data-lucide="check" style="width:18px;height:18px"></i></span>Seeing the full salary breakdown in one place was the moment the concept landed</li>
+            <li style="display:flex;gap:12px;padding:14px 0;font-size:var(--text-sm);line-height:var(--leading-normal)"><span style="color:var(--lime-500);flex:0 0 auto"><i data-lucide="check" style="width:18px;height:18px"></i></span>That the 80% could <em>grow</em> rather than simply arrive was the strongest source of enthusiasm</li>
+          </ul>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:32px">
+          <h2 style="margin:0 0 16px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Outcome</h2>
+          <p style="margin:0;font-family:var(--font-display);font-size:var(--text-lg);line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">FundMyFuture launched to the crew.</p>
+          <p style="margin:18px 0 0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-500)">Adoption figures are still being gathered post-launch, so the qualitative findings stand on their own here — an honest case study beats an inflated one.</p>
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--border-subtle);font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-400)">Add tester quotes here — they carry more weight than any metric</div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Reflection" style="max-width:1180px;margin:0 auto;padding:56px 32px 88px">
+      <h2 data-reveal="0" style="margin:0 0 16px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Reflection</h2>
+      <p data-reveal="0" style="margin:0 0 20px;max-width:34ch;font-family:var(--font-display);font-size:clamp(1.8rem,4.4vw,var(--text-xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">The constraint everyone treated as the problem was <span style="font-style:italic;color:var(--ink-700)">the opportunity.</span></p>
+      <p data-reveal="0" style="margin:0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">The hardest part of this project wasn't the interface. A guaranteed monthly transfer is the closest thing to a reliable savings mechanism a person can have. It just needed somewhere to go.</p>
+      <h3 data-reveal="60" style="margin:36px 0 16px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">What I'd explore next</h3>
+      <ul data-reveal="60" style="list-style:none;margin:0;padding:0;max-width:62ch">
+        <li style="padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)">An allottee-facing view, so the family ashore participates in the plan rather than receiving it</li>
+        <li style="padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)">Progress framing tied to contract cycles rather than calendar months</li>
+        <li style="padding:14px 0;font-size:var(--text-sm)">Post-launch research on whether goal-based framing changes actual saving behaviour over a full contract</li>
+      </ul>
+    </section>
+
+    <section aria-label="Next" style="position:relative;background:var(--ink-900);color:var(--paper-000);padding:80px 0 32px;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.55;pointer-events:none"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 32px">
+        <span style="font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">Next</span>
+        <a href="index.html#work" data-cursor="link" class="next-link" style="display:block;margin-top:18px;font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,6vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--paper-000)">Back to all work →</a>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+          <a href="index.html#contact" data-cursor="link" data-magnet="1" style="display:inline-flex;align-items:center;gap:10px;background:var(--lime-500);color:var(--ink-900);border-radius:999px;padding:14px 24px;font-size:var(--text-sm);font-weight:600;transition:transform 160ms cubic-bezier(.34,1.56,.64,1);will-change:transform">Get in touch</a>
+        </div>
+        <footer style="margin-top:64px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,.62)">
+          <span>FundMyFuture · Case study</span>
+          <span>Tangerang · GMT+7</span>
+          <span>© 2026 Wandrea Moscoso</span>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="js/case-study.js"></script>
+</body>
+</html>

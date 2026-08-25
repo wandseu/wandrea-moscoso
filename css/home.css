@@ -1,0 +1,70 @@
+/* Homepage-only layout rules: header/nav breakpoint, hero stacking, the
+   horizontal-scroll case-study track, mobile panel, dock nav, ticker, and
+   gallery hover. Shared tokens/brand shapes live in design-tokens.css. */
+
+@keyframes ticker { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(-50% - 16px), 0, 0); } }
+@keyframes cue { 0% { transform: scaleY(.2); transform-origin: top; opacity: .3; } 45% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(.2); transform-origin: bottom; opacity: .3; } }
+
+/* --- header / nav breakpoint (900px) --- */
+.menu-button { display: none; }
+@media (max-width: 899px) {
+  .site-nav { display: none !important; }
+  .site-cta { display: none !important; }
+  .menu-button { display: inline-flex !important; }
+}
+
+/* --- hero --- */
+#hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+#hero-portrait { position: relative; justify-self: end; width: 100%; max-width: 340px; }
+@media (max-width: 899px) {
+  #hero-grid { grid-template-columns: 1fr; }
+  #hero-portrait { justify-self: center; order: -1; max-width: 260px; }
+}
+
+/* --- horizontal case-study track ---
+   Stacks to a plain vertical list when the viewport is small in either
+   dimension (matches the original scroll-jacking component's own check). */
+#work-wrap { position: relative; height: 300vh; }
+#work-sticky { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 0 0 20px; }
+#work-track { display: flex; flex-direction: row; gap: 26px; padding: 6px 32px; will-change: transform; }
+#work-track [data-panel] {
+  flex: 0 0 min(82vw, 1000px);
+  display: grid;
+  grid-template-columns: 1fr .95fr;
+  gap: 40px;
+  align-items: center;
+  background: var(--paper-000);
+  border-radius: 18px;
+  box-shadow: var(--shadow-card);
+  padding: 38px;
+  min-height: calc(64vh - 107px);
+}
+@media (max-width: 1079px) {
+  #work-track [data-panel] { grid-template-columns: 1fr .78fr; }
+}
+@media (max-height: 759px) {
+  #work-track [data-panel] { grid-template-columns: 1fr .78fr; padding: 24px 28px; gap: 28px; }
+}
+@media (max-width: 719px), (max-height: 519px) {
+  #work-wrap { height: auto; }
+  #work-sticky { position: static; height: auto; overflow: visible; padding: 56px 0; }
+  #work-track { flex-direction: column; transform: none !important; }
+  #work-track [data-panel] { flex: 0 0 auto; grid-template-columns: 1fr; padding: 26px; min-height: 0; }
+  .work-scroll-hint { display: none; }
+}
+
+/* --- mobile nav panel --- */
+#mobile-panel a:hover { color: var(--blue-700); }
+
+/* --- filter chips --- */
+.chip[data-active="true"] { border-color: var(--blue-500) !important; background: var(--blue-500) !important; color: var(--paper-000) !important; }
+
+/* --- selected-work gallery --- */
+.gallery-card { transition: transform 200ms cubic-bezier(.34, 1.56, .64, 1), box-shadow 200ms; }
+.gallery-card:hover { transform: translate3d(0, -4px, 0); box-shadow: var(--shadow-raised); }
+.gallery-card [data-mark] { display: inline-block; transition: transform 240ms cubic-bezier(.34, 1.56, .64, 1); }
+.gallery-card:hover [data-mark] { transform: translate3d(3px, -3px, 0) rotate(-12deg) scale(1.3); }
+
+/* --- misc hover states ported from style-hover --- */
+.outline-cta:hover { background: var(--blue-100); }
+.email-link:hover { color: var(--lime-400) !important; }

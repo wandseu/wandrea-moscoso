@@ -170,3 +170,17 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--text-heading); line-
   font-size: max(11px, calc(var(--sticker-size, 120px) * .13));
   border-radius: 48% 52% 44% 56% / 56% 44% 56% 44%;
 }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  border: 2px solid var(--border-subtle);
+  background: var(--paper-000);
+  color: var(--text-body);
+}
