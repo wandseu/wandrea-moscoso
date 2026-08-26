@@ -312,6 +312,14 @@
   });
   window.addEventListener('keydown', onKey);
 
+  function icons(tries) {
+    const n = tries || 0;
+    if (window.lucide && window.lucide.createIcons) {
+      try { window.lucide.createIcons(); } catch (err) { /* icons optional */ }
+    } else if (n < 40) setTimeout(() => icons(n + 1), 150);
+  }
+
+  icons();
   dragSetup();
   reveals();
   measure();

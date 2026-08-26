@@ -104,6 +104,9 @@ body {
 }
 a { color: var(--text-link); text-decoration: none; transition: color var(--duration-fast) var(--ease-standard); }
 a:hover { color: var(--text-link-hover); }
+
+/* --- filled/solid button hover: darken, never fade --- */
+.fill-cta:hover { filter: brightness(.93); }
 h1, h2, h3 { font-family: var(--font-display); color: var(--text-heading); line-height: var(--leading-tight); letter-spacing: var(--tracking-display); margin: 0; }
 ::selection { background: var(--lime-400); color: var(--ink-800); }
 
