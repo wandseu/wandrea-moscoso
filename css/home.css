@@ -68,3 +68,4 @@
 /* --- misc hover states ported from style-hover --- */
 .outline-cta:hover { background: var(--blue-100); }
 .email-link:hover { color: var(--lime-400) !important; }
+.resume-outline:hover { border-color: var(--lime-500) !important; color: var(--lime-400) !important; }
