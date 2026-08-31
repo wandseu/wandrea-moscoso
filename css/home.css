@@ -53,6 +53,11 @@
   .work-scroll-hint { display: none; }
 }
 
+/* --- expertise grid: 2 columns, stacks on narrow viewports --- */
+@media (max-width: 719px) {
+  #expertise-grid { grid-template-columns: 1fr !important; }
+}
+
 /* --- mobile nav panel --- */
 #mobile-panel a:hover { color: var(--blue-700); }
 
