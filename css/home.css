@@ -26,7 +26,8 @@
    dimension (matches the original scroll-jacking component's own check). */
 #work-wrap { position: relative; height: 300vh; }
 #work-sticky { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow: hidden; padding: 0 0 20px; }
-#work-track { display: flex; flex-direction: row; gap: 26px; padding: 6px 32px; will-change: transform; }
+/* side padding lines the first/last panel up with the 1180px content column */
+#work-track { display: flex; flex-direction: row; gap: 26px; padding: 6px max(32px, calc((100% - 1180px) / 2 + 32px)); will-change: transform; }
 #work-track [data-panel] {
   flex: 0 0 min(82vw, 1000px);
   display: grid;

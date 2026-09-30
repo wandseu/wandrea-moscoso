@@ -119,7 +119,10 @@
   function measure() {
     if (!wrap || !track) return;
     if (stacked()) { target = 0; if (bar) bar.style.width = '0%'; return; }
-    const extra = Math.max(track.scrollWidth - window.innerWidth, 0);
+    // scrollWidth omits the trailing padding, so add it back so the last panel
+    // stops on the content column's right edge
+    const padRight = parseFloat(getComputedStyle(track).paddingRight) || 0;
+    const extra = Math.max(track.scrollWidth + padRight - track.clientWidth, 0);
     wrap.style.height = (window.innerHeight + extra) + 'px';
     prog = Math.min(1, Math.max(0, (window.scrollY - wrap.offsetTop) / Math.max(extra, 1)));
     target = -prog * extra;
@@ -303,6 +306,10 @@
     hatiVideo.addEventListener('play', sync);
     hatiVideo.addEventListener('pause', sync);
     sync();
+    // pause once the video scrolls out of view
+    new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (!en.isIntersecting && !hatiVideo.paused) hatiVideo.pause(); });
+    }).observe(hatiVideo);
   }
 
   // --- background music toggle (off until the visitor turns it on) ---

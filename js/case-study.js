@@ -110,6 +110,12 @@
     } else if (n < 40) setTimeout(() => icons(n + 1), 150);
   }
 
+  // pause videos once they scroll out of view
+  const videoIO = new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (!en.isIntersecting && !en.target.paused) en.target.pause(); });
+  });
+  document.querySelectorAll('video').forEach((v) => videoIO.observe(v));
+
   icons();
   reveals();
   bar();
