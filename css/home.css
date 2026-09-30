@@ -74,3 +74,9 @@
 .outline-cta:hover { background: var(--blue-100); }
 .email-link:hover { color: var(--lime-400) !important; }
 .resume-outline:hover { border-color: var(--lime-500) !important; color: var(--lime-400) !important; }
+
+/* Hati demo play button + background music toggle */
+.hati-play:hover { transform: scale(1.08); }
+.hati-play:active { transform: scale(.97); }
+.music-toggle:hover { transform: translateY(-2px); }
+.music-toggle:active { transform: scale(.97); }

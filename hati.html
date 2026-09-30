@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hati · Concept — Wandrea Moscoso</title>
+<meta name="description" content="Hati: a bill-splitting app for barkadas in the Philippines — its own wallet, QR Ph merchant payments, and a split offered the moment you pay. Concept and 15-second motion demo.">
+<link rel="icon" type="image/x-icon" href="assets/Icon-2026-square.ico">
+<link rel="stylesheet" href="css/design-tokens.css">
+<script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
+<style>
+@keyframes floaty{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-9px,0) rotate(5deg)}}
+@keyframes twirl{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.12)}}
+@keyframes wordUp{from{transform:translate3d(0,110%,0)}to{transform:translate3d(0,0,0)}}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+:focus-visible{outline:3px solid rgba(91,79,224,.38);outline-offset:3px;border-radius:6px}
+[data-cursor-custom],[data-cursor-custom] *{cursor:none!important}
+.next-link{transition:color 160ms}
+.next-link:hover{color:var(--lime-400)!important}
+</style>
+</head>
+<body>
+<div data-page-root style="position:relative;background:var(--paper-200);min-height:100vh;overflow-x:clip">
+
+  <div id="cursor-dot" aria-hidden="true" style="position:fixed;top:0;left:0;z-index:90;pointer-events:none;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:999px;background:var(--blue-500);will-change:transform"></div>
+  <div id="cursor-ring" aria-hidden="true" style="position:fixed;top:0;left:0;z-index:89;pointer-events:none;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:999px;border:2px solid var(--blue-500);will-change:transform;transition:width 200ms cubic-bezier(.2,.8,.2,1),height 200ms cubic-bezier(.2,.8,.2,1),background-color 160ms,margin 200ms cubic-bezier(.2,.8,.2,1)"></div>
+
+  <span id="progress-bar" aria-hidden="true" style="position:fixed;top:0;left:0;height:4px;width:0%;background:var(--lime-500);z-index:64"></span>
+
+  <header style="position:sticky;top:0;z-index:60;background:rgba(237,238,238,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+      <a href="index.html#hati" data-cursor="link" style="display:inline-flex;align-items:center;gap:9px;font-size:var(--text-sm);font-weight:600;color:var(--blue-500)"><i data-lucide="arrow-left" style="width:16px;height:16px"></i> All work</a>
+      <span style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Concept · Hati</span>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px">
+        <a href="assets/Wandrea-Moscoso-Resume-2026.pdf" download data-cursor="link" style="display:inline-flex;align-items:center;gap:8px;background:none;border:2px solid var(--blue-500);color:var(--blue-500);border-radius:999px;padding:9px 18px;font-size:var(--text-sm);font-weight:600;transition:transform 160ms cubic-bezier(.34,1.56,.64,1),background-color 160ms;will-change:transform">Resume</a>
+        <a href="index.html#contact" class="fill-cta" data-cursor="link" data-magnet="1" style="display:inline-flex;align-items:center;gap:8px;background:var(--blue-500);color:var(--paper-000);border-radius:999px;padding:11px 20px;font-size:var(--text-sm);font-weight:600;transition:transform 160ms cubic-bezier(.34,1.56,.64,1),box-shadow 160ms;will-change:transform">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section aria-label="Overview" style="position:relative;max-width:1180px;margin:0 auto;padding:72px 32px 56px">
+      <div aria-hidden="true" style="position:absolute;right:5%;top:12%;pointer-events:none;animation:floaty 9s ease-in-out infinite">
+        <span class="sparkle" style="--sparkle-color:var(--coral-500);--sparkle-size:42px"></span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:24px">
+        <span class="badge badge--lime">Concept · Motion demo</span>
+        <span style="font-size:var(--text-xs);font-weight:500;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Fintech · Mobile · Philippines</span>
+      </div>
+
+      <h1 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(2.6rem,8vw,var(--text-3xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">
+        <span style="display:block;overflow:hidden;padding-bottom:.22em;margin-bottom:-.18em"><span style="display:inline-block;animation:wordUp 760ms cubic-bezier(.34,1.56,.64,1) 60ms both">Hati</span></span>
+      </h1>
+      <p style="margin:22px 0 0;max-width:58ch;font-size:var(--text-md);line-height:var(--leading-normal);color:var(--ink-700)">A bill-splitting app for barkadas in the Philippines — its own wallet, QR Ph merchant payments, and a split offered <span style="background:linear-gradient(transparent 62%, var(--lime-400) 62%);padding:0 2px">the moment you pay</span>, not three days later in the group chat.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;margin-top:44px;background:var(--border-subtle);border-radius:18px;overflow:hidden">
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Role</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Product design, design system &amp; motion</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Type</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Portfolio concept</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Deliverables</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">6 key screens · 15-second demo</div></div>
+        <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Year</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">2026</div></div>
+      </div>
+
+      <div data-reveal="0" style="margin-top:34px;background:var(--ink-900);border-radius:24px;padding:clamp(20px,4vw,40px);display:flex;justify-content:center;overflow:hidden">
+        <video data-autoplay-muted="1" src="assets/hati-demo.mp4" muted loop playsinline controls preload="metadata" aria-label="Hati 15-second motion demo" style="display:block;width:100%;max-height:78vh;border-radius:14px;background:#000"></video>
+      </div>
+      <p style="margin:16px 0 0;font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">The 15-second motion demo — one focal point per beat</p>
+    </section>
+
+    <section aria-label="Context" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:start">
+        <div data-reveal="0">
+          <h2 style="margin:0 0 20px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Context</h2>
+          <p style="margin:0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal)">Young Filipino professionals eat out, travel and share household costs in groups. Someone always fronts the bill — then spends the week screenshotting receipts, doing the division, and sending "hey, sa Mesa Grill pala" reminders.</p>
+          <p style="margin:16px 0 0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Split-tracking apps exist, but they sit apart from the payment. You pay in one app, log the expense in another, and settle in a third. Every hand-off is a chance for the split to never happen.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--ink-900);color:var(--paper-000);border-radius:18px;padding:32px;position:relative;overflow:hidden">
+          <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.5"></div>
+          <div style="position:relative">
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">The design question</div>
+            <p style="margin:16px 0 0;font-family:var(--font-display);font-size:var(--text-lg);line-height:var(--leading-tight);letter-spacing:var(--tracking-display)">What if splitting wasn't a separate task — just the <em>next step</em> after paying?</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="The flow" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 12px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">The flow</h2>
+      <p data-reveal="0" style="margin:0 0 36px;max-width:24ch;font-family:var(--font-display);font-size:clamp(2rem,5vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Pay once. <span style="font-style:italic;color:var(--ink-700)">Split instantly.</span></p>
+      <div data-reveal="0" style="background:var(--blue-100);border-radius:24px;padding:40px 28px 0;display:flex;justify-content:center;align-items:flex-end;gap:clamp(10px,2vw,22px);overflow:hidden;flex-wrap:wrap">
+        <img src="assets/hati-scan.png" alt="Scan to pay — QR scanner" style="width:clamp(110px,14%,170px);border-radius:22px;box-shadow:0 20px 38px -16px rgba(27,42,107,.42);transform:translateY(30px)">
+        <img src="assets/hati-pay.png" alt="Pay merchant ₱3,600" style="width:clamp(110px,14%,170px);border-radius:22px;box-shadow:0 20px 38px -16px rgba(27,42,107,.42);transform:translateY(12px)">
+        <img src="assets/hati-paid.png" alt="Payment success with split prompt" style="width:clamp(110px,14%,170px);border-radius:22px;box-shadow:0 20px 38px -16px rgba(27,42,107,.42)">
+        <img src="assets/hati-friends.png" alt="Split with Barkada" style="width:clamp(110px,14%,170px);border-radius:22px;box-shadow:0 20px 38px -16px rgba(27,42,107,.42)">
+        <img src="assets/hati-dashboard.png" alt="Dashboard: you're owed ₱2,700" style="width:clamp(110px,14%,170px);border-radius:22px;box-shadow:0 20px 38px -16px rgba(27,42,107,.42);transform:translateY(12px)">
+        <img src="assets/hati-end.png" alt="Hati end card" style="width:clamp(110px,14%,170px);border-radius:22px;box-shadow:0 20px 38px -16px rgba(27,42,107,.42);transform:translateY(30px)">
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;margin-top:24px;background:var(--border-subtle);border-radius:18px;overflow:hidden">
+        <div style="background:var(--paper-000);padding:18px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--blue-500)">01 · Scan</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-700)">Point at any QR Ph code</div></div>
+        <div style="background:var(--paper-000);padding:18px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--blue-500)">02 · Pay</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-700)">One number, one button</div></div>
+        <div style="background:var(--paper-000);padding:18px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--blue-500)">03 · Paid</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-700)">"Split this bill?" appears</div></div>
+        <div style="background:var(--paper-000);padding:18px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--blue-500)">04 · Split</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-700)">Barkada preselected, ₱900 each</div></div>
+        <div style="background:var(--paper-000);padding:18px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--blue-500)">05 · Track</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-700)">You're owed ₱2,700</div></div>
+        <div style="background:var(--paper-000);padding:18px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--blue-500)">06 · End card</div><div style="margin-top:6px;font-size:var(--text-sm);color:var(--ink-700)">The promise, in one line</div></div>
+      </div>
+    </section>
+
+    <section aria-label="Design decisions" style="max-width:1180px;margin:0 auto;padding:56px 32px">
+      <h2 data-reveal="0" style="margin:0 0 40px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Design decisions</h2>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div>
+          <span class="badge badge--solid">01</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">The split lives inside the receipt</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">The success screen is where the payer is most motivated to split — the amount is fresh, the friends are still at the table. So "Split this bill?" arrives as a bottom sheet over the confirmation, with the payment already known: merchant, total, time.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">"Not now" sits beside "Split" at equal size. Splitting is offered, never pushed.</p>
+        </div>
+        <div style="background:var(--lime-200);border-radius:22px;padding:36px 24px 0;display:flex;justify-content:center;overflow:hidden">
+          <img src="assets/hati-paid.png" alt="Payment success with Split this bill bottom sheet" style="width:min(70%,280px);border-radius:26px;box-shadow:0 26px 48px -18px rgba(27,42,107,.44);transform:translateY(26px)">
+        </div>
+      </div>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div style="order:2">
+          <span class="badge badge--solid">02</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Equal by default, flexible when needed</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">Most barkada splits are equal, so that's the default: the group is preselected, everyone gets a ₱900 chip, and the button reads "Send requests." Exact, percent and shares are one tap away in a segmented control — there when the lechon was really Paolo's order.</p>
+        </div>
+        <div style="order:1;background:var(--blue-100);border-radius:22px;padding:36px 24px 0;display:flex;justify-content:center;overflow:hidden">
+          <img src="assets/hati-friends.png" alt="Split with Barkada — four friends at ₱900 each" style="width:min(70%,280px);border-radius:26px;box-shadow:0 26px 48px -18px rgba(27,42,107,.44);transform:translateY(26px)">
+        </div>
+      </div>
+
+      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
+        <div>
+          <span class="badge badge--solid">03</span>
+          <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Money without blame</h3>
+          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">Friendships outlast any bill. The copy says "Waiting on Migs," not "Migs hasn't paid," and the action is "Send a friendly nudge." Red is reserved for real errors — never for a friend's balance.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Direction always travels as a set: teal + ↙ + "Owes you" versus coral + ↗ + "You owe". Hue, icon and words together, so it reads without relying on colour alone.</p>
+        </div>
+        <div style="background:var(--coral-100);border-radius:22px;padding:36px 24px 0;display:flex;justify-content:center;overflow:hidden">
+          <img src="assets/hati-dashboard.png" alt="Dashboard with pending friends" style="width:min(70%,280px);border-radius:26px;box-shadow:0 26px 48px -18px rgba(27,42,107,.44);transform:translateY(26px)">
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+        <div data-reveal="0" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <span class="badge badge--solid">04</span>
+          <h3 style="margin:14px 0 12px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">One focal point per screen</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">Each screen had to become a beat in a 15-second animation, so each carries one number or one action — the QR frame, ₱3,600, the checkmark, four avatars, ₱2,700, the wordmark. If a viewer only catches half a second, they still get the point.</p>
+        </div>
+        <div data-reveal="60" style="background:var(--paper-000);border-radius:18px;box-shadow:0 6px 18px rgba(27,42,107,.10);padding:28px">
+          <span class="badge badge--solid">05</span>
+          <h3 style="margin:14px 0 12px;font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--blue-500);letter-spacing:var(--tracking-display)">Playful shape, calm money</h3>
+          <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-700)">I built a small design system for it: ink outlines and hard offset shadows for warmth, teal for trust, mango for highlights. The playfulness is dialled down wherever money appears — amounts are big, tabular and plain.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Design system" style="position:relative;background:var(--ink-900);color:var(--paper-000);padding:80px 0;overflow:hidden;margin:40px 0">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.55;pointer-events:none"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 32px">
+        <h2 style="margin:0 0 22px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">Visual language</h2>
+        <p style="margin:0;max-width:26ch;font-family:var(--font-display);font-size:clamp(2rem,5.4vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display)">Friendly enough for a barkada, <span style="font-style:italic;color:var(--lime-400)">steady enough for money.</span></p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:28px;margin-top:40px">
+          <div>
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400);margin-bottom:14px">Colour</div>
+            <div style="display:flex;gap:8px;margin-bottom:12px">
+              <span style="width:34px;height:34px;border-radius:9px;background:#1D9E75"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#0F6E56"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#F7C352"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#E8694A"></span>
+              <span style="width:34px;height:34px;border-radius:9px;background:#FBF6EF"></span>
+            </div>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:rgba(255,255,255,.72)">Teal for trust and every primary action, deep teal where white text has to pass contrast. Mango highlights, coral for "you owe", warm sand neutrals.</p>
+          </div>
+          <div>
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400);margin-bottom:14px">Type</div>
+            <div style="font-family:'Plus Jakarta Sans',var(--font-body);font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:12px;color:#fff">₱3,600</div>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:rgba(255,255,255,.72)">Plus Jakarta Sans throughout. Amounts get their own styles with tabular numerals and a reduced ₱, so the number is always the loudest thing on screen.</p>
+          </div>
+          <div>
+            <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400);margin-bottom:14px">Cards &amp; motion</div>
+            <div style="width:120px;height:44px;border-radius:14px;background:#fff;border:1.5px solid #1E1C19;box-shadow:0 4px 0 #1E1C19;margin-bottom:12px"></div>
+            <p style="margin:0;font-size:var(--text-sm);line-height:var(--leading-normal);color:rgba(255,255,255,.72)">Ink outlines with hard offset shadows; presses sink into the shadow. Motion is fast — 150ms presses, 400ms sheets — with overshoot saved for the success check.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-label="Reflection" style="max-width:1180px;margin:0 auto;padding:56px 32px 88px">
+      <h2 data-reveal="0" style="margin:0 0 16px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Reflection</h2>
+      <p data-reveal="0" style="margin:0 0 20px;max-width:32ch;font-family:var(--font-display);font-size:clamp(1.8rem,4.4vw,var(--text-xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Designing for motion made every screen <span style="font-style:italic;color:var(--ink-700)">earn its place.</span></p>
+      <p data-reveal="0" style="margin:0;max-width:62ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Knowing each screen would get roughly two seconds on camera forced ruthless editing — one idea per screen, nothing decorative that didn't move the story forward. That constraint made the static design better too.</p>
+      <h3 data-reveal="60" style="margin:36px 0 16px;font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">What I'd explore next</h3>
+      <ul data-reveal="60" style="list-style:none;margin:0;padding:0;max-width:62ch">
+        <li style="padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)">The friend's side — receiving a request and settling from wallet, QR or an attached receipt</li>
+        <li style="padding:14px 0;border-bottom:1px solid var(--border-subtle);font-size:var(--text-sm)">Uneven splits from an itemised receipt, without turning the bill into a spreadsheet</li>
+        <li style="padding:14px 0;font-size:var(--text-sm)">Usability testing with real barkadas on how nudges feel from the receiving end</li>
+      </ul>
+    </section>
+
+    <section aria-label="Next" style="position:relative;background:var(--ink-900);color:var(--paper-000);padding:80px 0 32px;overflow:hidden">
+      <div aria-hidden="true" style="position:absolute;inset:0;background:var(--gradient-aurora);opacity:.55;pointer-events:none"></div>
+      <div style="position:relative;max-width:1180px;margin:0 auto;padding:0 32px">
+        <span style="font-size:var(--text-xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--lime-400)">Next</span>
+        <a href="fund-my-future.html" data-cursor="link" class="next-link" style="display:block;margin-top:18px;font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,6vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--paper-000)">FundMyFuture →</a>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:34px">
+          <a href="index.html#work" data-cursor="link" style="display:inline-flex;align-items:center;gap:10px;border:2px solid rgba(255,255,255,.34);color:var(--paper-000);border-radius:999px;padding:13px 24px;font-size:var(--text-sm);font-weight:600">All work</a>
+          <a href="index.html#contact" class="fill-cta" data-cursor="link" data-magnet="1" style="display:inline-flex;align-items:center;gap:10px;background:var(--lime-500);color:var(--ink-900);border-radius:999px;padding:14px 24px;font-size:var(--text-sm);font-weight:600;transition:transform 160ms cubic-bezier(.34,1.56,.64,1);will-change:transform">Get in touch</a>
+        </div>
+        <footer style="margin-top:64px;padding-top:22px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;font-size:var(--text-2xs);font-weight:500;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:rgba(255,255,255,.62)">
+          <span>© 2026 Wandrea Moscoso</span>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+</div>
+<script src="js/case-study.js"></script>
+</body>
+</html>

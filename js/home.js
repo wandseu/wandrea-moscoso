@@ -286,6 +286,64 @@
     });
   }
 
+  // --- Hati demo video: big play button overlays the paused video ---
+  const hatiVideo = document.getElementById('hati-video');
+  const hatiPlay = document.getElementById('hati-play');
+  if (hatiVideo && hatiPlay) {
+    const sync = () => {
+      const paused = hatiVideo.paused;
+      hatiPlay.style.opacity = paused ? '1' : '0';
+      hatiPlay.style.pointerEvents = paused ? 'auto' : 'none';
+      hatiPlay.setAttribute('aria-label', paused ? 'Play the Hati demo' : 'Pause the Hati demo');
+    };
+    hatiPlay.addEventListener('click', () => {
+      if (hatiVideo.paused) { const p = hatiVideo.play(); if (p && p.catch) p.catch(() => {}); }
+      else hatiVideo.pause();
+    });
+    hatiVideo.addEventListener('play', sync);
+    hatiVideo.addEventListener('pause', sync);
+    sync();
+  }
+
+  // --- background music toggle (off until the visitor turns it on) ---
+  const music = document.getElementById('bg-music');
+  const musicBtn = document.getElementById('music-toggle');
+  const musicIcon = document.getElementById('music-icon');
+  const musicLabel = document.getElementById('music-label');
+  let musicOn = false;
+
+  function musicUI(on) {
+    const s = 'viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px"';
+    if (musicIcon) {
+      musicIcon.innerHTML = on
+        ? '<svg ' + s + '><path d="M11 5 6 9H2v6h4l5 4V5Z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 5a10 10 0 0 1 0 14"></path></svg>'
+        : '<svg ' + s + '><path d="M11 5 6 9H2v6h4l5 4V5Z"></path><path d="m22 9-6 6"></path><path d="m16 9 6 6"></path></svg>';
+      musicIcon.style.background = on ? 'var(--blue-500)' : 'var(--ink-500)';
+    }
+    if (musicLabel) musicLabel.textContent = on ? 'Music on' : 'Music off';
+    if (musicBtn) {
+      musicBtn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      musicBtn.setAttribute('aria-label', on ? 'Mute background music' : 'Play background music');
+    }
+  }
+
+  if (music && musicBtn) {
+    musicUI(false);
+    musicBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (musicOn || !music.paused) {
+        music.pause();
+        musicOn = false;
+        musicUI(false);
+        try { localStorage.setItem('wm-portfolio-music', 'off'); } catch (err) { /* ignore */ }
+      } else {
+        music.volume = 0.35;
+        music.play().then(() => { musicOn = true; musicUI(true); }).catch(() => {});
+        try { localStorage.setItem('wm-portfolio-music', 'on'); } catch (err) { /* ignore */ }
+      }
+    });
+  }
+
   // --- main loop ---
   function loop() {
     requestAnimationFrame(loop);

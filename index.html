@@ -35,6 +35,12 @@
     <a data-dock="contact" href="#contact" aria-label="Contact" data-cursor="link" style="position:relative;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;background:var(--lime-500);color:var(--ink-900);transition:background-color 160ms,color 160ms,transform 160ms cubic-bezier(.34,1.56,.64,1)"><i data-lucide="mail" style="width:18px;height:18px"></i><span style="position:absolute;right:46px;opacity:0;transform:translate3d(6px,0,0);transition:opacity 160ms,transform 200ms cubic-bezier(.34,1.56,.64,1);background:var(--ink-900);color:var(--paper-000);border-radius:999px;padding:5px 11px;font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;white-space:nowrap;pointer-events:none">Contact</span></a>
   </nav>
 
+  <audio id="bg-music" src="assets/bg-music.mp3" loop preload="none"></audio>
+  <button id="music-toggle" class="music-toggle" type="button" aria-label="Play background music" aria-pressed="false" data-cursor="link" style="position:fixed;left:22px;bottom:22px;z-index:62;display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border:1px solid var(--border-subtle);border-radius:999px;padding:9px 16px 9px 10px;box-shadow:0 6px 18px rgba(27,42,107,.14);font-family:var(--font-body);font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-700);transition:transform 160ms cubic-bezier(.34,1.56,.64,1)">
+    <span id="music-icon" style="width:30px;height:30px;border-radius:999px;background:var(--ink-500);color:var(--paper-000);display:flex;align-items:center;justify-content:center;flex:none"></span>
+    <span id="music-label">Music off</span>
+  </button>
+
   <div id="toast" role="status" aria-live="polite" style="position:fixed;left:50%;bottom:34px;z-index:80;transform:translate3d(-50%,calc(100% + 60px),0);opacity:0;transition:transform 360ms cubic-bezier(.34,1.56,.64,1),opacity 200ms ease;background:var(--ink-900);color:var(--paper-000);border-radius:999px;padding:12px 22px;font-size:var(--text-sm);font-weight:500;box-shadow:0 8px 26px rgba(27,42,107,.28)">Email copied — see you soon</div>
 
   <header style="position:sticky;top:0;z-index:60;background:rgba(237,238,238,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
@@ -125,6 +131,24 @@
         <span>Brand design</span><span style="color:var(--lime-500)">✦</span><span>Product UI</span><span style="color:var(--lime-500)">✦</span><span>Design systems</span><span style="color:var(--lime-500)">✦</span><span>AI-assisted prototyping</span><span style="color:var(--lime-500)">✦</span><span>Front-end</span><span style="color:var(--lime-500)">✦</span>
       </div>
     </div>
+
+    <section id="hati" aria-label="Featured: Hati" style="max-width:1180px;margin:0 auto;padding:clamp(64px,9vh,96px) 32px 24px">
+      <div data-reveal="0" style="display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)">
+        <div style="position:relative;min-width:0;background:var(--ink-900);border-radius:24px;padding:clamp(14px,2vw,22px);box-shadow:0 12px 30px rgba(27,42,107,.18)">
+          <video id="hati-video" src="assets/hati-demo.mp4" muted loop playsinline controls preload="metadata" aria-label="Hati motion demo" style="display:block;width:100%;border-radius:14px;background:#000"></video>
+          <button id="hati-play" class="hati-play" type="button" aria-label="Play the Hati demo" data-cursor="link" style="position:absolute;inset:0 0 48px 0;margin:auto;width:96px;height:96px;border-radius:999px;border:none;background:var(--lime-500);color:var(--ink-900);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 0 rgba(27,42,107,.9), 0 16px 34px rgba(0,0,0,.35);transition:transform 160ms cubic-bezier(.34,1.56,.64,1),opacity 200ms ease">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:36px;height:36px;margin-left:5px"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5Z"></path></svg>
+          </button>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:24px 44px;align-items:flex-start;justify-content:space-between">
+          <div style="min-width:0;flex:1 1 320px">
+            <h2 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(2rem,3.6vw,var(--text-xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Hati</h2>
+            <p style="margin:16px 0 0;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">Split bills with your barkada the moment you pay — scan a QR Ph code, pay from the Hati wallet, and send everyone their share in one go.</p>
+          </div>
+          <a href="hati.html" class="fill-cta" data-cursor="link" data-magnet="1" style="display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:var(--blue-500);color:var(--paper-000);border-radius:999px;padding:13px 22px;font-size:var(--text-sm);font-weight:600;white-space:nowrap;transition:transform 160ms cubic-bezier(.34,1.56,.64,1),box-shadow 160ms;will-change:transform">See case study →</a>
+        </div>
+      </div>
+    </section>
 
     <section id="work" aria-label="Featured case studies">
       <div id="work-wrap">
