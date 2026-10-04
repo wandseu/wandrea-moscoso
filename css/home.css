@@ -3,7 +3,7 @@
    dock nav, ticker, and gallery hover. Shared tokens/brand shapes live in
    design-tokens.css. */
 
-@keyframes ticker { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(calc(-50% - 16px), 0, 0); } }
+@keyframes ticker { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 @keyframes cue { 0% { transform: scaleY(.2); transform-origin: top; opacity: .3; } 45% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(.2); transform-origin: bottom; opacity: .3; } }
 
 /* --- header / nav breakpoint (900px) --- */
