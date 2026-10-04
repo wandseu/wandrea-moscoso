@@ -7,6 +7,7 @@
   const cursorRing = document.getElementById('cursor-ring');
   const toast = document.getElementById('toast');
   const dock = document.getElementById('dock-nav');
+  const toTop = document.getElementById('to-top');
   const menuButton = document.getElementById('menu-button');
   const panel = document.getElementById('mobile-panel');
   const panelInner = document.getElementById('mobile-panel-inner');
@@ -144,6 +145,13 @@
       dock.style.transform = show ? 'translate3d(0,-50%,0)' : 'translate3d(28px,-50%,0)';
       dock.style.opacity = show ? '1' : '0';
       dock.style.pointerEvents = show ? 'auto' : 'none';
+    }
+
+    if (toTop) {
+      const show = window.scrollY > window.innerHeight * .8;
+      toTop.style.transform = show ? 'none' : 'translate3d(0,16px,0)';
+      toTop.style.opacity = show ? '1' : '0';
+      toTop.style.pointerEvents = show ? 'auto' : 'none';
     }
   }
 

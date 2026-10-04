@@ -14,6 +14,11 @@
   .menu-button { display: inline-flex !important; }
 }
 
+/* --- mobile back-to-top: the dock covers this from 900px up --- */
+@media (min-width: 900px) {
+  .to-top { display: none !important; }
+}
+
 /* --- hero --- */
 #hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
 #hero-portrait { position: relative; justify-self: end; width: 100%; max-width: 340px; }
