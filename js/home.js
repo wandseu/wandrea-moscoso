@@ -10,20 +10,13 @@
   const menuButton = document.getElementById('menu-button');
   const panel = document.getElementById('mobile-panel');
   const panelInner = document.getElementById('mobile-panel-inner');
-  const wrap = document.getElementById('work-wrap');
-  const track = document.getElementById('work-track');
-  const bar = document.getElementById('work-bar');
   const chips = document.getElementById('filter-chips');
   const gallery = document.getElementById('gallery');
 
   let mx = window.innerWidth / 2, my = window.innerHeight / 2;
   let cx = mx, cy = my, rx = mx, ry = my;
   let curKind = null;
-  let tx = 0, target = 0, prog = 0, menuOpen = false, toastTimer = null;
-
-  function stacked() {
-    return window.innerWidth < 720 || window.innerHeight < 520;
-  }
+  let menuOpen = false, toastTimer = null;
 
   function setCursor(kind) {
     if (kind === curKind) return;
@@ -78,6 +71,10 @@
 
   // --- reveal-on-scroll ---
   let io = null;
+  // once the entrance finishes, drop the inline transform/transition so CSS :hover lifts work again
+  function settle(el, delay) {
+    setTimeout(() => { el.style.transition = ''; el.style.transform = ''; }, 360 + delay);
+  }
   function reveals() {
     if (!root || reduced) return;
     io = new IntersectionObserver((entries) => {
@@ -90,6 +87,7 @@
         el.style.transition = 'opacity ' + t + ', transform ' + t;
         el.style.opacity = '1';
         el.style.transform = 'none';
+        settle(el, d);
         io.unobserve(el);
       });
     }, { rootMargin: '0px 0px -10% 0px' });
@@ -110,61 +108,10 @@
         el.style.transition = 'opacity 360ms cubic-bezier(.34,1.56,.64,1), transform 360ms cubic-bezier(.34,1.56,.64,1)';
         el.style.opacity = '1';
         el.style.transform = 'none';
+        settle(el, 0);
         io.unobserve(el);
       }
     });
-  }
-
-  // --- horizontal case-study track ---
-  function measure() {
-    if (!wrap || !track) return;
-    if (stacked()) { target = 0; if (bar) bar.style.width = '0%'; return; }
-    // scrollWidth omits the trailing padding, so add it back so the last panel
-    // stops on the content column's right edge
-    const padRight = parseFloat(getComputedStyle(track).paddingRight) || 0;
-    const extra = Math.max(track.scrollWidth + padRight - track.clientWidth, 0);
-    wrap.style.height = (window.innerHeight + extra) + 'px';
-    prog = Math.min(1, Math.max(0, (window.scrollY - wrap.offsetTop) / Math.max(extra, 1)));
-    target = -prog * extra;
-  }
-
-  function dragSetup() {
-    if (!track) return;
-    let active = false, startX = 0, startScroll = 0, moved = 0;
-
-    track.addEventListener('pointerdown', (e) => {
-      if (stacked() || e.button !== 0) return;
-      if (e.target instanceof Element && e.target.closest('a,button')) return;
-      active = true; moved = 0;
-      startX = e.clientX;
-      startScroll = window.scrollY;
-      track.setPointerCapture(e.pointerId);
-      track.style.userSelect = 'none';
-    });
-    track.addEventListener('pointermove', (e) => {
-      if (!active) return;
-      const dx = e.clientX - startX;
-      moved = Math.abs(dx);
-      window.scrollTo({ top: startScroll - dx * 1.25 });
-    });
-    const up = (e) => {
-      if (!active) return;
-      active = false;
-      track.style.userSelect = '';
-      if (track.hasPointerCapture(e.pointerId)) track.releasePointerCapture(e.pointerId);
-    };
-    track.addEventListener('pointerup', up);
-    track.addEventListener('pointercancel', up);
-    track.addEventListener('dragstart', (e) => e.preventDefault());
-    track.addEventListener('click', (e) => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); } }, true);
-  }
-
-  function onKey(e) {
-    if (!wrap || stacked()) return;
-    const r = wrap.getBoundingClientRect();
-    if (r.top > 0 || r.bottom < window.innerHeight) return;
-    if (e.key === 'ArrowRight') { window.scrollBy({ top: window.innerHeight * .7, behavior: 'smooth' }); e.preventDefault(); }
-    if (e.key === 'ArrowLeft') { window.scrollBy({ top: -window.innerHeight * .7, behavior: 'smooth' }); e.preventDefault(); }
   }
 
   // --- scrollspy + dock ---
@@ -354,12 +301,6 @@
   // --- main loop ---
   function loop() {
     requestAnimationFrame(loop);
-    if (track && !stacked()) {
-      tx += (target - tx) * (reduced ? 1 : .14);
-      if (Math.abs(target - tx) < .2) tx = target;
-      track.style.transform = 'translate3d(' + tx.toFixed(2) + 'px,0,0)';
-      if (bar) bar.style.width = (prog * 100).toFixed(1) + '%';
-    }
     if (fine) {
       cx += (mx - cx) * .38;
       cy += (my - cy) * .38;
@@ -370,12 +311,10 @@
     }
   }
 
-  window.addEventListener('scroll', () => { measure(); spy(); sweep(); }, { passive: true });
+  window.addEventListener('scroll', () => { spy(); sweep(); }, { passive: true });
   window.addEventListener('resize', () => {
-    measure();
     if (window.innerWidth >= 900 && menuOpen) closeMenu();
   });
-  window.addEventListener('keydown', onKey);
 
   function icons(tries) {
     const n = tries || 0;
@@ -385,9 +324,7 @@
   }
 
   icons();
-  dragSetup();
   reveals();
-  measure();
   spy();
   loop();
 })();
