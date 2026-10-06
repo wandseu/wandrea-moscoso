@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mini demos — Wandrea Moscoso</title>
+<meta name="description" content="Click-through mini demos of Hati, FundMyFuture and Commerce Desk.">
+<link rel="icon" type="image/x-icon" href="assets/Icon-2026-square.ico">
+<link rel="stylesheet" href="css/design-tokens.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+html,body{margin:0;background:var(--paper-200)}
+:focus-visible{outline:3px solid rgba(91,79,224,.38);outline-offset:3px;border-radius:6px}
+.demo-tab{border:0;cursor:pointer;font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;padding:8px 16px;border-radius:999px;white-space:nowrap;transition:background 160ms,color 160ms;background:transparent;color:var(--ink-700)}
+.demo-tab[aria-pressed="true"]{background:var(--blue-500);color:var(--paper-000)}
+.demo-step{width:100%;text-align:left;cursor:pointer;font-family:var(--font-body);display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:14px;transition:background 160ms,border-color 160ms;border:2px solid transparent;background:transparent}
+.demo-step[aria-current="step"]{border-color:var(--ink-900);background:var(--paper-000)}
+.demo-step__num{flex:none;width:26px;height:26px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:var(--text-2xs);font-weight:600;background:var(--paper-000);color:var(--ink-900)}
+.demo-step[aria-current="step"] .demo-step__num{background:var(--lime-500)}
+.demo-step__caption{display:none;margin-top:4px;font-size:var(--text-sm);line-height:var(--leading-normal);color:var(--ink-500)}
+.demo-step[aria-current="step"] .demo-step__caption{display:block}
+.demo-prev{cursor:pointer;font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;padding:11px 20px;border-radius:999px;border:2px solid var(--blue-500);background:transparent;color:var(--blue-500);transition:background 160ms}
+.demo-prev:hover{background:var(--blue-100)}
+.demo-next{cursor:pointer;font-family:var(--font-body);font-size:var(--text-sm);font-weight:600;padding:11px 22px;border-radius:999px;border:2px solid var(--blue-500);background:var(--blue-500);color:var(--paper-000);transition:transform 120ms,box-shadow 120ms}
+.demo-next:hover{transform:translateY(-2px);box-shadow:0 2px 0 var(--ink-900)}
+.demo-screen{display:block;width:100%;height:100%;object-fit:cover}
+.demo-frame--phone{border-radius:48px;overflow:hidden;border:2px solid var(--ink-900);box-shadow:0 30px 60px -24px rgba(27,42,107,.45);box-sizing:border-box;background:var(--paper-000)}
+.demo-frame--desktop{border-radius:12px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(27,42,107,.45)}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<div style="min-height:100vh;display:flex;flex-direction:column;background:var(--paper-200)">
+
+  <header style="position:sticky;top:0;z-index:20;background:rgba(237,238,238,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle)">
+    <div style="max-width:1280px;margin:0 auto;padding:12px 32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html#work" style="display:inline-flex;align-items:center;gap:8px;font-size:var(--text-sm);font-weight:600;color:var(--blue-500)">← Portfolio</a>
+      <nav id="demo-tabs" aria-label="Demos" style="display:flex;gap:6px;background:var(--paper-000);border:2px solid var(--ink-900);border-radius:999px;padding:4px;max-width:100%;overflow-x:auto"></nav>
+    </div>
+  </header>
+
+  <main style="flex:1;width:100%;max-width:1280px;margin:0 auto;box-sizing:border-box;padding:40px 32px 48px;display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+
+    <div style="flex:1 1 300px;max-width:400px;position:relative">
+      <div aria-hidden="true" style="position:absolute;right:8px;top:-8px">
+        <span class="sparkle" style="--sparkle-color:var(--coral-500);--sparkle-size:28px"></span>
+      </div>
+      <span class="badge badge--lime">Mini demo</span>
+      <h1 id="demo-name" style="margin:16px 0 0;font-family:var(--font-display);font-weight:700;font-size:clamp(2.4rem,5vw,var(--text-2xl));line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)"></h1>
+      <p id="demo-blurb" style="margin:14px 0 0;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700);text-wrap:pretty"></p>
+
+      <ol id="demo-steps" style="list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:6px"></ol>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:24px">
+        <button type="button" id="demo-prev" class="demo-prev">← Back</button>
+        <button type="button" id="demo-next" class="demo-next">Next →</button>
+      </div>
+      <a id="demo-href" href="#" style="display:inline-block;margin-top:20px;font-size:var(--text-sm);font-weight:600">Read the case study →</a>
+    </div>
+
+    <div style="flex:3 1 420px;min-width:0;display:flex;flex-direction:column;align-items:center;gap:14px">
+      <div id="demo-stage" style="width:100%;display:flex;justify-content:center">
+        <div id="demo-box" title="Click to advance" style="position:relative;cursor:pointer;flex:none">
+          <div id="demo-frame" style="position:relative"><img id="demo-img" class="demo-screen" alt=""><div id="demo-live" role="img" style="display:none;position:absolute;left:0;top:0;width:1440px;height:900px;transform-origin:0 0;pointer-events:none"></div></div>
+        </div>
+      </div>
+      <div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Click the screen or use ← → keys · <span id="demo-step-of"></span></div>
+    </div>
+
+  </main>
+</div>
+<script src="js/cd-screen.js"></script>
+<script>
+(function () {
+  const demos = {
+    hati: {
+      name: 'Hati', href: 'hati.html', w: 390, h: 844, phone: true,
+      blurb: 'Pay a merchant by QR, then split the bill with your barkada before you leave the table.',
+      steps: [
+        ['scan', 'Scan to pay', 'The wallet opens straight to the camera. Point at any QR Ph code.'],
+        ['pay', 'Pay merchant', 'One number, one button. Your balance sits underneath so there are no surprises.'],
+        ['paid', 'Paid', 'The split prompt appears the moment payment clears, while the bill is still fresh.'],
+        ['friends', 'Split with barkada', 'Everyone is selected by default and split equally: ₱900 each.'],
+        ['dashboard', "You're owed", 'Requests go out and the dashboard shows who is still pending, without blame.'],
+        ['end', 'End card', 'Pay once. Split instantly.']
+      ]
+    },
+    fmf: {
+      name: 'FundMyFuture', href: 'fund-my-future.html', w: 390, h: 844, phone: true,
+      blurb: 'A seafarer’s salary, split between family at home and goals for later, in one place.',
+      steps: [
+        ['home', 'Home', 'Where this month’s salary went, at a glance.'],
+        ['breakdown', 'Salary breakdown', 'From gross pay to remittance, then family and future, month by month.'],
+        ['goals', 'Goals', 'Every savings goal with its own progress.'],
+        ['goal', 'Goal detail', 'One goal up close: target, monthly top-up and time to reach it.'],
+        ['profile', 'Profile', 'Allotment settings, notifications and auto top-up.']
+      ]
+    },
+    cd: {
+      name: 'Commerce Desk', href: 'commerce-desk.html', w: 1440, h: 900, phone: false, live: true,
+      blurb: 'The admin system ops use to run catalog, orders and allotment deductions without a developer.',
+      steps: [
+        ['dashboard', 'Dashboard', 'Collection tracked against payroll cycles, with interrupted schedules flagged.'],
+        ['products', 'Products', 'A spreadsheet-dense table with bulk actions and inline price edits.'],
+        ['orders', 'Order detail', 'The deduction schedule lives with the order, next to buyer roles and change history.']
+      ]
+    }
+  };
+
+  const $ = (id) => document.getElementById(id);
+  const tabs = $('demo-tabs'), stepsEl = $('demo-steps'), stage = $('demo-stage');
+  const box = $('demo-box'), frame = $('demo-frame'), img = $('demo-img'), live = $('demo-live');
+  let key = demos[location.hash.slice(1)] ? location.hash.slice(1) : 'hati';
+  let step = 0;
+
+  Object.keys(demos).forEach((k) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'demo-tab';
+    b.textContent = demos[k].name;
+    b.dataset.key = k;
+    b.addEventListener('click', () => {
+      key = k; step = 0;
+      try { history.replaceState(null, '', '#' + k); } catch (e) {}
+      render();
+    });
+    tabs.appendChild(b);
+  });
+
+  // Warm the cache so stepping through a demo doesn't flash.
+  Object.keys(demos).filter((k) => !demos[k].live).forEach((k) => demos[k].steps.forEach((s) => { new Image().src = 'assets/' + k + '-' + s[0] + '.png'; }));
+
+  function fit() {
+    const d = demos[key];
+    const top = stage.getBoundingClientRect().top + window.scrollY;
+    const availH = Math.max(360, window.innerHeight - Math.min(top, 140) - 70);
+    const scale = Math.min(1, stage.clientWidth / d.w, availH / d.h);
+    box.style.width = Math.round(d.w * scale) + 'px';
+    box.style.height = Math.round(d.h * scale) + 'px';
+    frame.style.width = '100%';
+    frame.style.height = '100%';
+    frame.style.borderRadius = d.phone ? Math.round(48 * scale) + 'px' : '';
+    live.style.transform = 'scale(' + scale.toFixed(4) + ')';
+  }
+
+  function render() {
+    const d = demos[key], s = d.steps[step];
+    $('demo-name').textContent = d.name;
+    $('demo-blurb').textContent = d.blurb;
+    $('demo-href').href = d.href;
+    $('demo-step-of').textContent = (step + 1) + ' / ' + d.steps.length;
+    frame.className = d.phone ? 'demo-frame--phone' : 'demo-frame--desktop';
+    img.style.display = d.live ? 'none' : '';
+    live.style.display = d.live ? '' : 'none';
+    if (d.live) {
+      live.innerHTML = window.CdScreen.render(s[0]);
+      live.setAttribute('aria-label', d.name + ': ' + s[1]);
+      img.removeAttribute('src');
+    } else {
+      img.src = 'assets/' + key + '-' + s[0] + '.png';
+      img.alt = d.name + ': ' + s[1];
+    }
+    tabs.querySelectorAll('.demo-tab').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.key === key)));
+
+    stepsEl.innerHTML = '';
+    d.steps.forEach((st, i) => {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'demo-step';
+      if (i === step) b.setAttribute('aria-current', 'step');
+      b.innerHTML = '<span class="demo-step__num"></span><span style="min-width:0"><span style="display:block;font-size:var(--text-sm);font-weight:600;color:var(--ink-900)"></span><span class="demo-step__caption"></span></span>';
+      b.querySelector('.demo-step__num').textContent = String(i + 1).padStart(2, '0');
+      b.querySelector('span[style] span').textContent = st[1];
+      b.querySelector('.demo-step__caption').textContent = st[2];
+      b.addEventListener('click', () => { step = i; render(); });
+      li.appendChild(b);
+      stepsEl.appendChild(li);
+    });
+    fit();
+  }
+
+  function move(dir) {
+    const n = demos[key].steps.length;
+    step = (step + dir + n) % n;
+    render();
+  }
+
+  box.addEventListener('click', () => move(1));
+  $('demo-next').addEventListener('click', () => move(1));
+  $('demo-prev').addEventListener('click', () => move(-1));
+  window.addEventListener('keydown', (e) => {
+    if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === 'ArrowRight') move(1);
+    if (e.key === 'ArrowLeft') move(-1);
+  });
+  window.addEventListener('hashchange', () => {
+    const h = location.hash.slice(1);
+    if (demos[h] && h !== key) { key = h; step = 0; render(); }
+  });
+  new ResizeObserver(fit).observe(stage);
+  window.addEventListener('resize', fit);
+  render();
+})();
+</script>
+</body>
+</html>

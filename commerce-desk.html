@@ -7,6 +7,7 @@
 <meta name="description" content="Commerce Desk: an operations tool for a marketplace where crew settle purchases against their payroll allotment. Case study on design and front-end work.">
 <link rel="icon" type="image/x-icon" href="assets/Icon-2026-square.ico">
 <link rel="stylesheet" href="css/design-tokens.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
 <script src="https://unpkg.com/lucide@0.454.0/dist/umd/lucide.min.js"></script>
 <style>
 @keyframes floaty{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-9px,0) rotate(5deg)}}
@@ -17,6 +18,7 @@
 [data-cursor-custom],[data-cursor-custom] *{cursor:none!important}
 .next-link{transition:color 160ms}
 .next-link:hover{color:var(--lime-400)!important}
+.demo-lift:hover{transform:translateY(-2px)}
 </style>
 <!-- Vercel Web Analytics -->
 <script>
@@ -62,6 +64,7 @@
         <span style="display:block;overflow:hidden;padding-bottom:.22em;margin-bottom:-.18em"><span style="display:inline-block;animation:wordUp 760ms cubic-bezier(.34,1.56,.64,1) 60ms both">Commerce Desk</span></span>
       </h1>
       <p style="margin:22px 0 0;max-width:58ch;font-size:var(--text-md);line-height:var(--leading-normal);color:var(--ink-700)">An operations tool for a marketplace where crew settle purchases against their <em>allotment</em> — payment as a payroll event, not a card transaction. I designed and built the front-end that replaced <span style="background:linear-gradient(transparent 62%, var(--lime-400) 62%);padding:0 2px">spreadsheets and developer requests</span>.</p>
+      <a href="demos.html#cd" class="demo-lift" data-cursor="link" style="display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:var(--lime-500);color:var(--ink-900);border-radius:999px;padding:12px 22px;font-size:var(--text-sm);font-weight:600;transition:transform 120ms cubic-bezier(.34,1.56,.64,1)">Try the mini demo →</a>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;margin-top:44px;background:var(--border-subtle);border-radius:18px;overflow:hidden">
         <div style="background:var(--paper-000);padding:22px"><div style="font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Role</div><div style="margin-top:8px;font-size:var(--text-sm);font-weight:500;color:var(--ink-800)">Product designer &amp; front-end developer</div></div>
@@ -76,7 +79,7 @@
           <span class="sticker sticker--lime sticker--burst" style="--sticker-rotate:8deg;--sticker-size:86px">Ops-run</span>
         </div>
         <div style="background:var(--blue-100);border-radius:24px;padding:44px 44px 0;overflow:hidden">
-          <img src="assets/cd-dashboard.png" alt="Commerce Desk dashboard showing deduction collection by payroll cycle and schedules needing attention" style="width:100%;display:block;border-radius:14px 14px 0 0;box-shadow:0 30px 60px -20px rgba(27,42,107,.45)">
+          <div data-cd-frame role="img" aria-label="Commerce Desk dashboard showing deduction collection by payroll cycle and schedules needing attention" style="position:relative;width:100%;aspect-ratio:1440/900;border-radius:14px 14px 0 0;box-shadow:0 30px 60px -20px rgba(27,42,107,.45)"><div data-cd-inner data-cd-screen="dashboard" style="position:absolute;left:0;top:0;width:1440px;height:900px;transform-origin:0 0;pointer-events:none"></div></div>
         </div>
       </div>
       <p style="margin:16px 0 0;font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Dashboard — collection against payroll cycles, not calendar months</p>
@@ -138,26 +141,22 @@
           </ul>
         </div>
         <div style="background:var(--blue-100);border-radius:22px;padding:32px 32px 0;overflow:hidden">
-          <img src="assets/cd-products.png" alt="Products table with bulk selection, inline price editing, filters and a saved view" style="width:100%;display:block;border-radius:12px 12px 0 0;box-shadow:0 26px 50px -20px rgba(27,42,107,.44)">
+          <div data-cd-frame role="img" aria-label="Products table with bulk selection, inline price editing, filters and a saved view" style="position:relative;width:100%;aspect-ratio:1440/900;border-radius:14px 14px 0 0;box-shadow:0 30px 60px -20px rgba(27,42,107,.45)"><div data-cd-inner data-cd-screen="products" style="position:absolute;left:0;top:0;width:1440px;height:900px;transform-origin:0 0;pointer-events:none"></div></div>
         </div>
       </div>
 
-      <div data-reveal="0" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:44px;align-items:center;margin-bottom:64px">
-        <div style="order:2;position:relative">
-          <div aria-hidden="true" style="position:absolute;top:-16px;left:-12px;z-index:3;animation:floaty 10s ease-in-out infinite">
-            <span class="sticker sticker--coral sticker--pill" style="--sticker-rotate:-6deg">Where is this order's money?</span>
-          </div>
-          <div style="background:var(--lime-200);border-radius:22px;padding:32px 32px 0;overflow:hidden">
-            <img src="assets/cd-orders.png" alt="Order detail with a per-cycle deduction schedule, allotment commitment and change history" style="width:100%;display:block;border-radius:12px 12px 0 0;box-shadow:0 26px 50px -20px rgba(27,42,107,.44)">
-          </div>
-        </div>
-        <div style="order:1">
+      <div data-reveal="0" style="margin-bottom:64px">
+        <div>
           <span class="badge badge--solid">02</span>
           <h3 style="margin:14px 0 14px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,var(--text-xl));font-weight:700;line-height:var(--leading-tight);letter-spacing:var(--tracking-display);color:var(--blue-500)">Allotment deduction as a first-class flow</h3>
-          <p style="margin:0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">A card payment succeeds or fails in a moment. An allotment deduction is a commitment against future wages, spread across payroll cycles, and it can be disrupted by things that have nothing to do with the order — a contract ending, a crew member disembarking, a change in allotment amount.</p>
-          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">So the order detail carries the schedule itself: the plan laid out by cycle with per-cycle status, a per-buyer commitment summary so over-commitment is visible before it becomes a collection problem, and flagging for schedules a contract end will interrupt.</p>
-          <p style="margin:14px 0 0;max-width:52ch;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Order status and deduction status are different things, kept visually and verbally separate — an order can be delivered while its deductions are still running.</p>
+          <p style="margin:0;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-700)">A card payment succeeds or fails in a moment. An allotment deduction is a commitment against future wages, spread across payroll cycles, and it can be disrupted by things that have nothing to do with the order — a contract ending, a crew member disembarking, a change in allotment amount.</p>
+          <p style="margin:14px 0 0;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">So the order detail carries the schedule itself: the plan laid out by cycle with per-cycle status, a per-buyer commitment summary so over-commitment is visible before it becomes a collection problem, and flagging for schedules a contract end will interrupt.</p>
+          <p style="margin:14px 0 0;font-size:var(--text-base);line-height:var(--leading-normal);color:var(--ink-500)">Order status and deduction status are different things, kept visually and verbally separate — an order can be delivered while its deductions are still running.</p>
         </div>
+        <div style="margin-top:32px;background:var(--blue-100);border-radius:24px;padding:40px 40px 0;overflow:hidden">
+          <div data-cd-frame role="img" aria-label="Order detail with a per-cycle deduction schedule, buyer roles, allotment commitment and change history" style="position:relative;width:100%;aspect-ratio:1440/900;border-radius:14px 14px 0 0;box-shadow:0 30px 60px -20px rgba(27,42,107,.45)"><div data-cd-inner data-cd-screen="orders" style="position:absolute;left:0;top:0;width:1440px;height:900px;transform-origin:0 0;pointer-events:none"></div></div>
+        </div>
+        <p style="margin:16px 0 0;font-size:var(--text-2xs);font-weight:600;letter-spacing:var(--tracking-caps);text-transform:uppercase;color:var(--ink-500)">Order detail — the deduction schedule lives with the order</p>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
@@ -266,6 +265,7 @@
 
   </main>
 </div>
+<script src="js/cd-screen.js"></script>
 <script src="js/case-study.js"></script>
 </body>
 </html>
